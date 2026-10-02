@@ -10,7 +10,7 @@ import { Header } from './ui/header';
 const PAYMENT_FREQUENCIES: ('mensual' | 'anual')[] = ['mensual', 'anual'];
 // Must match the Stripe "Mantenimiento anual de dominio" one-time Price.
 const DOMAIN_MAINTENANCE_DISCLOSURE =
-  'Cuota anual de mantenimiento: $599 MXN a partir del 2.º año.';
+  'Se cobra una couta anual de mantenimiento del sitio web: $599 MXN a partir del 2º año en plan Básico y Pro.';
 const TIERS = [
   {
     id: 'individuals',
@@ -220,7 +220,7 @@ export default function PricingSection() {
   >(PAYMENT_FREQUENCIES[0]);
 
   return (
-    <section className="flex flex-col items-center gap-10 pt-42">
+    <section className="flex flex-col items-center gap-10 pt-42" id="pricing">
       <Header title="Planes y precios" subtitle='Un plan para cada etapa de tu negocio' icon={<Regex size={24} color='var(--color-primary)' />} />
       <div className="space-y-7 text-center">
         <div className="mx-auto flex w-fit rounded-full bg-[#F3F4F6] p-1 dark:bg-[#222]">
@@ -246,6 +246,14 @@ export default function PricingSection() {
             paymentFrequency={selectedPaymentFreq}
           />
         ))}
+      </div>
+
+      <div className="px-4">
+        {DOMAIN_MAINTENANCE_DISCLOSURE && (
+          <p className="text-center text-sm text-muted-foreground/60">
+            * {DOMAIN_MAINTENANCE_DISCLOSURE}
+          </p>
+        )}
       </div>
     </section>
   );

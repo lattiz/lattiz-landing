@@ -28,7 +28,9 @@ export default function Home() {
         <HowItWorks data={HowItWorksData.data} />
         <PricingSection />
         <FAQs data={FaqsData.data} />
-        <CTA2 />
+        <div className="px-4">
+          <CTA2 />
+        </div>
       </div>
     </div>
   );

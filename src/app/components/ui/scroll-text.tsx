@@ -546,7 +546,12 @@ const ScrollProgressText = React.forwardRef<
   const containerRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.9", "start 0.25"],
+    offset: ["start 0.9", "start 0.1"],
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 50,
+    damping: 20,
+    mass: 0.5,
   });
  
   const characters = text.split("");
@@ -569,7 +574,7 @@ const ScrollProgressText = React.forwardRef<
               <ScrollProgressChar
                 key={characterPosition}
                 char={char}
-                progress={scrollYProgress}
+                progress={smoothProgress}
                 range={[start, end]}
                 className={charClassName}
               />

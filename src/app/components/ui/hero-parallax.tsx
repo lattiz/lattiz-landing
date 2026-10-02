@@ -8,6 +8,8 @@ import {
   MotionValue,
 } from "motion/react";
 
+import useIsMobile from "@/app/hooks/isMobile";
+
 export const HeroParallax = ({
   products,
 }: {
@@ -100,6 +102,10 @@ export const HeroParallax = ({
 };
 
 const Pills = ({ steps }: { steps: string[] }) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) return null;
+
   return (
     <div className="flex flex-row gap-3 flex-wrap justify-center max-w-md md:max-w-full">
       {steps.map((step, idx) => (
@@ -109,11 +115,12 @@ const Pills = ({ steps }: { steps: string[] }) => {
       ))}
     </div>
   );
-}
+};
 
 export const Header = () => {
+  const isMobile = useIsMobile();
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full text-center left-0 top-0">
+    <div className={`max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full text-center left-0 ${isMobile ? "top-[calc(50vh-100px)]" : "top-0"}`}>
       <h1 className="text-2xl md:text-7xl font-bold">
         Tu sitio web ya está <br />  construido, <span className="border-b-4 border-primary px-2 rounded-none">solo lánzalo.</span>
       </h1>
@@ -121,7 +128,7 @@ export const Header = () => {
         Elige una base diseñada profesionalmente, personalízala con tu marca, contenido, y publica en segundos. Sin diseñadores, sin programadores, sin complicaciones.
       </div>
       <div className="flex flex-row gap-3 mt-8 justify-center">
-        <Pills steps={["•  Tu marca en internet ", "• Edita cuando quieras", "• Métricas en tiempo real", "• .com/.mx incluido", "• Cancela cuando quieras"]} />
+         {!isMobile ? <Pills steps={["•  Tu marca en internet ", "• Edita cuando quieras", "• Métricas en tiempo real", "• .com/.mx incluido", "• Cancela cuando quieras"]} /> : null}
       </div>
     </div>
   );

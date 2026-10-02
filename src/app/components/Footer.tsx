@@ -47,33 +47,28 @@ export default function SiteFooter() {
 			],
 		},
 		{
-			title: "Recursos",
+			title: "Soporte",
 			links: [
-				{ label: "Blog", href: "https://blog.lattiz.com" },
-				{ label: "Documentación", href: "https://docs.lattiz.com" },
-				{ label: "Soporte", href: "https://support.lattiz.com" },
+				{ label: "Centro de ayuda", href: "https://support.lattiz.app" },
 			],
 		},
 		{
-			title: "Compañía",
+			title: "Contacto",
 			links: [
-				{ label: "Acerca de", href: "https://lattiz.com/about" },
-				{ label: "Carreras", href: "https://lattiz.com/careers" },
-				{ label: "Contacto", href: "https://lattiz.com/contact" },
+				{ label: "contacto@lattiz.app", href: "mailto:contacto@lattiz.app" },
 			],
 		},
 		{
-			title: "Legal",
+			title: "Carreras",
 			links: [
-				{ label: "Política de privacidad", href: "https://lattiz.com/privacy" },
-				{ label: "Términos de servicio", href: "https://lattiz.com/terms" },
+				{ label: "Trabaja con nosotros", href: "https://lattiz.app/careers" },
 			],
-		},
+		}
 	]
 
 	const legalLinks = [
-		{ label: "Política de privacidad", href: "https://lattiz.com/privacy" },
-		{ label: "Términos de servicio", href: "https://lattiz.com/terms" },
+		{ label: "Política de privacidad", href: "https://lattiz.app/privacy" },
+		{ label: "Términos de servicio", href: "https://lattiz.app/terms" },
 	]
 
 	const year = new Date().getFullYear();
@@ -90,7 +85,7 @@ export default function SiteFooter() {
 	}
 
 	return (
-		<footer className="text-[#FFF] bg-black relative w-full pt-20 pb-22 z-10 overflow-x-hidden">
+		<footer className="text-[#FFF] bg-black relative w-full pt-20 pb-22 z-10 overflow-x-hidden" id="contact">
 			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Top grid */}
 				<div className="grid grid-cols-2 gap-8 md:grid-cols-5 mb-16">

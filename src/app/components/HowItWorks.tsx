@@ -36,9 +36,6 @@ export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
                 <div className="w-full md:w-1/2 md:mt-16 mt-12">
                     <ProcessCards cards={data.cards} />
                 </div>
-                <div className="w-full max-w-[300px] flex md:hidden mx-auto justify-center">
-                    <button className="px-8 py-2 bg-red-500">odadpjaopd botona</button>
-                </div>
             </div>
         </section>
     );

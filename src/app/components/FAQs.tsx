@@ -12,7 +12,7 @@ interface FAQsProps {
 export const FAQs: React.FC<FAQsProps> = ({ data }) => {
 
     return (
-        <section className="relative w-full pt-32">
+        <section className="relative w-full pt-32" id="faq">
             <Header title={data.eyebrow} subtitle={data.title} icon={<CircleQuestionMark size={24} color="var(--color-primary)" />} />
             <Faq3 />
         </section>

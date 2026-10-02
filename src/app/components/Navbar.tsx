@@ -42,15 +42,15 @@ const links = [
   },
   {
     link: "Precios",
-    href: "/pricing"
+    href: "pricing"
   },
   {
     link: "Preguntas frecuentes",
-    href: "/faq"
+    href: "faq"
   },
   {
     link: "contacto",
-    href: "/contact"
+    href: "contact"
   },
 ]
 
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
         variants={navbarVariants}
         initial="hidden"
         animate="visible"
-        className="w-[85%] md:w-[60%] fixed flex h-10 px-6 pr-[0.1] rounded-full justify-between items-center overflow-hidden left-1/2 top-8 z-50 md:h-15 md:max-w-6xl xl:max-w-7xl bg-black/75 backdrop-blur-xs"
+        className="w-[85%] md:w-[60%] fixed flex h-12 px-6 pr-[0.1] rounded-full justify-between items-center overflow-hidden left-1/2 top-8 z-50 md:h-15 md:max-w-6xl xl:max-w-7xl bg-black/75 backdrop-blur-xs"
       >
         <motion.div
           initial={{ opacity: 0, transform: "translate3d(-20px, 0, 0)" }}
@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Button */}
         <motion.div
-          className="hidden xl:block mr-[4px]"
+          className="hidden xl:block mr-[6px]"
           initial={{ opacity: 0, transform: "translate3d(20px, 0, 0)" }}
           animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
           transition={{ delay: 0.5, duration: 0.5 }}
@@ -235,14 +235,14 @@ export const Navbar: React.FC = () => {
             </motion.li>
           ))}
           <motion.li
-            className="flex justify-center mx-auto items-center max-w-75 bg-[#FFF] hover:bg-red-600 transition-colors duration-300 text-black text-lg px-6 py-3 rounded-full cursor-pointer"
+            className="flex justify-center mx-auto items-center max-w-75 bg-[#FFF] transition-colors duration-300 text-black text-lg px-6 py-3 rounded-full cursor-pointer"
             variants={navItemVariants}
             initial="hidden"
             animate={menuOpen ? "visible" : "hidden"}
             custom={links.length}
             style={{ willChange: "transform, opacity" }}
           >
-            Panel de clientes
+            Acceso clientes <Home className="ml-2 h-5 w-5" />
           </motion.li>
         </ul>
       </motion.section>
