@@ -47,7 +47,7 @@ export const FeaturesData = {
             {
                 img: "/features/7.svg",
                 title: "SEO (Optimización para navegadores)",
-                description: "Tu sitio está optimizado para que tus clientes te encuentren en Google y otros buscadores sin pagar de más."
+                description: "Tu sitio está optimizado para que tus clientes te encuentren en Google y otros buscadores sin pagar anuncios."
             },
             {
                 img: "/features/3.svg",

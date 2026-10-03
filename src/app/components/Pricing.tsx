@@ -152,7 +152,7 @@ const PricingCard = ({
       <h2 className="flex items-center gap-3 text-xl font-medium capitalize">
         {tier.name}
         {isPopular && (
-          <div className="mt-1 bg-foreground px-2 py-1 text-white hover:bg-primary">
+          <div className="mt-1 bg-foreground px-2 py-1 text-primary hover:bg-primary">
             🔥 Más popular
           </div>
         )}
