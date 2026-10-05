@@ -1,13 +1,12 @@
 import HeroParallaxDemo from "./components/hero-parallax-demo";
 import TrustedBy from "./components/Trusted";
 import { About } from "./components/About";
-import { Benefits } from "./components/Benefits";
-import { Features } from "@/app/components/Features";
-import { BenefitsData, FeaturesData, HowItWorksData, FaqsData } from "./data/content";
+import { FeaturesData, HowItWorksData, FaqsData } from "./data/content";
 import { HowItWorks } from "@/app/components/HowItWorks"
 import { FAQs } from "./components/FAQs";
 import PricingSection from "@/app/components/Pricing"
 import CTA2 from "./components/CTA";
+import { Features } from "./components/Features";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
           <div className="px-4">
             <TrustedBy />
             <About />
-            <Benefits data={BenefitsData.data} />
           </div>
         </div>
         <Features data={FeaturesData.data} />

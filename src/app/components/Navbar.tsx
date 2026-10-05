@@ -158,14 +158,14 @@ export const Navbar: React.FC = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
           style={{ willChange: "transform, opacity" }}
         >
-          <a href="https://lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
+          <a href="https://dashboard.lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
             <button
               type="button"
               className="flex w-full items-center justify-center rounded-full bg-[#FFF] px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer"
             >
               <span>Acceso clientes</span> <Home className="ml-2 h-5 w-5" />
             </button>
-            </a>
+          </a>
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -242,7 +242,9 @@ export const Navbar: React.FC = () => {
             custom={links.length}
             style={{ willChange: "transform, opacity" }}
           >
-            Acceso clientes <Home className="ml-2 h-5 w-5" />
+            <a href="dashboard.lattiz.app" className="flex flex-row gap-2">
+              Acceso clientes <Home className="ml-2 h-5 w-5" />
+            </a>
           </motion.li>
         </ul>
       </motion.section>

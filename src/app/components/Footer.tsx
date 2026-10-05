@@ -36,7 +36,7 @@ export default function SiteFooter() {
 
 	const socials = [
 		{ key: "instagram", href: "https://www.instagram.com/lattiz/", label: "Instagram" },
-		{ key: "linkedin", href: "https://www.linkedin.com/company/lattiz/", label: "LinkedIn" },
+		{ key: "linkedin", href: "https://www.linkedin.com/company/llattiz/", label: "LinkedIn" },
 	]
 
 	const navColumns = [
@@ -44,26 +44,15 @@ export default function SiteFooter() {
 			title: "Productos",
 			links: [
 				{ label: "Lattiz", href: "https://lattiz.app" },
-			],
-		},
-		{
-			title: "Soporte",
-			links: [
-				{ label: "Centro de ayuda", href: "https://support.lattiz.app" },
+				{ label: "Acceso clientes", href: "https://dashboard.lattiz.app" }
 			],
 		},
 		{
 			title: "Contacto",
 			links: [
-				{ label: "contacto@lattiz.app", href: "mailto:contacto@lattiz.app" },
+				{ label: "contacto@lattiz.app", href: "mailto:hola@lattiz.app" },
 			],
 		},
-		{
-			title: "Carreras",
-			links: [
-				{ label: "Trabaja con nosotros", href: "https://lattiz.app/careers" },
-			],
-		}
 	]
 
 	const legalLinks = [
@@ -88,7 +77,7 @@ export default function SiteFooter() {
 		<footer className="text-[#FFF] bg-black relative w-full pt-20 pb-22 z-10 overflow-x-hidden" id="contact">
 			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Top grid */}
-				<div className="grid grid-cols-2 gap-8 md:grid-cols-5 mb-16">
+				<div className="grid grid-cols-2 gap-8 md:grid-cols-4 mb-16">
 					{/* Brand column */}
 					<div className="col-span-2 md:col-span-2 lg:col-span-1">
 						<a

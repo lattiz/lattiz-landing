@@ -1,28 +1,56 @@
 export const BenefitsData = {
     data: {
         eyebrow: "Beneficios",
-        title: "Las herramientas que tu negocio necesita.",
-        subtitle: "Plantillas listas y herramientas simples que te ayudan a publicar tu sitio sin rodeos y sin perder dinero en el intento.",
+        title: "Tu próximo cliente ya te está buscando en Google.",
+        subtitle: "Una página web propia es la puerta para que te encuentren, confíen en ti y te escriban. Lattiz te la entrega lista, con dominio incluido.",
         cards: [
             {
-                title: "Publica tu sitio web en minutos.",
-                description: "Elige una plantilla, personaliza tu información y publícala. Sin esperar, sin aprender a programar, sin complicaciones."
+                title: "Aparece cuando te buscan",
+                description: "Tus clientes escriben «cafeterías cerca de mí» o «postres fit en Clavería». Con tu propia página, tu negocio entra en esos resultados. Y llega lista para Google: rápida, con diseño para celular y los datos de tu negocio bien ordenados.",
+                img: "/benefits/b1.jpeg",
+                badge: "Visibilidad"
             },
             {
-                title: "Plantillas hechas para tu negocio.",
-                description: "Diseños pensados para barberías, consultorios, restaurantes, estudios, tiendas y más. Entra, edita y publica."
+                title: "Reseñas que te traen más clientes",
+                description: "Enlaza tu ficha de Google Maps y pide reseñas con un botón. Más reseñas ayudan a que Google te muestre mejor y generan confianza antes de la primera visita.",
+                img: "/benefits/b2.jpeg",
+                badge: "Confianza"
             },
             {
-                title: "Dominio incluido.",
-                description: "Registra o conecta tu dominio automáticamente desde Lattiz. Sin configurar a nada a mano."
+                title: "Tu menú y servicios, siempre a la mano",
+                description: "Precios, horarios, ubicación y catálogo disponibles las 24 horas. Que tu cliente lo vea sin tener que preguntarte por mensaje.",
+                img: "/benefits/b3.jpeg",
+                badge: "24/7"
             },
             {
-                title: "Diseños para todos los dispositivos, a tu imagen",
-                description: "Cambia colores, textos, secciones e imágenes cuando quieras. Tu sitio se optimiza automáticamente para celulares, tabletas y computadoras."
+                title: "WhatsApp a un toque",
+                description: "Un botón y tu cliente te escribe con el mensaje ya listo. De «vi tu página» a «quiero una cita» en segundos.",
+                img: "/benefits/3.jpeg",
+                badge: "Contacto"
             },
             {
-                title: "Diseñado para convertir visitantes en clientes.",
-                description: "Secciones de llamada a la acción, testimonios y contacto ya optimizadas para que tus visitantes se conviertan en clientes."
+                title: "Todo tu negocio en un solo link",
+                description: "Conecta Instagram, Facebook, TikTok, mapa y contacto. Compártelo en tu bio, tarjeta o por WhatsApp: tus redes ahora llevan a un lugar que sí es tuyo.",
+                img: "/benefits/b4.jpeg",
+                badge: "Redes"
+            },
+            {
+                title: "Sabe quién te visita y de dónde llega",
+                description: "Visitas, origen (Google, Instagram, WhatsApp) y páginas más vistas en un panel sencillo. Decide qué promocionar con datos, no con corazonadas.",
+                img: "/benefits/b5.jpeg",
+                badge: "Plan Pro"
+            },
+            {
+                title: "Cámbialo cuando quieras",
+                description: "Nueva promo, precio de temporada o servicio nuevo: edítalo tú y se publica en minutos. Sin pedir cotización por cada cambio.",
+                img: "/benefits/7.jpeg",
+                badge: "Control total"
+            },
+            {
+                title: "Se adapta a tu negocio",
+                description: "Reservas, pedidos, formularios u otras integraciones: cuéntanos qué necesitas y lo conectamos.",
+                img: "/benefits/b6.jpeg",
+                badge: "A la medida"
             }
         ]
     }
@@ -30,34 +58,49 @@ export const BenefitsData = {
 
 export const FeaturesData = {
     data: {
-        eyebrow: "Características",
+        eyebrow: "Características y Beneficios",
         title: "Construido para que estés en línea rápido.",
         subtitle: "Plantillas listas y herramientas simples que te ayudan a publicar tu sitio sin rodeos y sin perder dinero en el intento.",
         cards: [
             {
-                img: "/features/1.svg",
-                title: "Tu sitio en línea hoy mismo.",
-                description: "Selecciona una plantilla, agrega tu información, personaliza con tu marca y publica. Todo el proceso toma menos de 10 minutos."
+                img: "/benefits/b1.jpeg",
+                title: "Aparece cuando te buscan.",
+                description: "Tus clientes escriben «cafeterías cerca de mí» o «postres fit en Clavería». Con tu propia página, tu negocio entra en esos resultados. Elije una plantilla prediseñada"
             },
             {
-                img: "/features/2.svg",
-                title: "Tu marca, tu estilo",
-                description: "Personaliza tipografía, colores y contenido para que tu sitio se vea exactamente como tu negocio."
+                img: "/benefits/b2.jpeg",
+                title: "Reseñas que te traen más clientes.",
+                description: "Genera reseñas con un botón. Más reseñas ayudan a que Google te muestre mejor y generan confianza antes de la primera visita."
             },
             {
-                img: "/features/7.svg",
-                title: "SEO (Optimización para navegadores)",
-                description: "Tu sitio está optimizado para que tus clientes te encuentren en Google y otros buscadores sin pagar anuncios."
+                img: "/benefits/b3.jpeg",
+                title: "Tu menú y servicios, siempre a la mano.",
+                description: "Precios, horarios, ubicación y catálogo disponibles las 24 horas. Que tu cliente lo vea sin tener que preguntarte por mensaje."
             },
             {
-                img: "/features/3.svg",
-                title: "Editor visual, sin código",
-                description: "Edita cualquier sección con un clic. Lo que ves en pantalla es exactamente lo que tus clientes verán."
+                img: "/benefits/3.jpeg",
+                title: "WhatsApp a un toque.",
+                description: "Un botón y tu cliente te escribe con el mensaje ya listo. De «vi tu página» a «quiero una cita» en segundos."
             },
             {
-                img: "/features/5.svg",
-                title: "Analíticas y reportes de visitas",
-                description: "Sigue el rendimiento e impacto de tu sitio con métricas en tiempo real y toma decisiones informadas. "
+                img: "/benefits/b4.jpeg",
+                title: "Todo tu negocio en un solo link.",
+                description: "Tu plan incluye una dirección única y exclusiva que tu mismo escoges para visitar tu página web (dominio). Compártelo y añade tus redes sociales."
+            },
+            {
+                img: "/benefits/b5.jpeg",
+                title: "Conoce quién te visita y de dónde llega",
+                description: "Visitas, origen de los usuarios y páginas más vistas en un panel sencillo. Decide qué promocionar o mejorar con datos reales, no con corazonadas."
+            },
+            {
+                img: "/benefits/7.jpeg",
+                title: "Actualiza cuando quieras",
+                description: "Nueva promo, nuevo logo, nuevo precio de temporada o servicio: edítalo y personalizado tú y se publica nuevos cambios en segundos."
+            },
+            {
+                img: "/benefits/b6.jpeg",
+                title: "Nos adaptamos a tu negocio",
+                description: "Reservas, pedidos, formularios u otras integraciones: cuéntanos qué necesitas y lo conectamos."
             }
         ]
     }
@@ -89,7 +132,7 @@ export const HowItWorksData = {
 }
 
 export const FaqsData = {
-    data: 
+    data:
     {
         eyebrow: "Preguntas frecuentes",
         title: "Todo lo que necesitas saber antes de empezar."
