@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Lattiz | La página web de tu negocio, lista en minutos",
     description:
       "Aparece en Google, recibe mensajes por WhatsApp y actualiza tu página cuando quieras. Dominio incluido.",
-    images: ["/og.png"],
+    images: ["/og.webp"],
   },
 };
 
