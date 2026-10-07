@@ -197,19 +197,17 @@ const PricingCard = ({
         </ul>
       </div>
 
-      <button
+      <a
+        href={tier.id === 'enterprise' ? 'mailto:hola@lattiz.app' : 'https://dashboard.lattiz.app/'}
+        target={tier.id === 'enterprise' ? undefined : '_blank'}
+        rel={tier.id === 'enterprise' ? undefined : 'noopener noreferrer'}
         className={cn(
-          'h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
+          'inline-block h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
           isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95',
-        )}>
-        <a 
-          href={tier.id === 'enterprise' ? 'mailto:enterprise@lattiz.com' : 'https://lattiz.app/'}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {tier.cta}
-        </a>
-      </button>
+        )}
+      >
+        {tier.cta}
+      </a>
     </div>
   );
 };
