@@ -203,7 +203,7 @@ const PricingCard = ({
         rel={tier.id === 'enterprise' ? undefined : 'noopener noreferrer'}
         className={cn(
           'inline-block h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
-          isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95',
+          isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95', 
         )}
       >
         {tier.cta}
