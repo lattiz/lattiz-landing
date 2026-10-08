@@ -16,6 +16,7 @@ export default function Home() {
         <HeroParallaxDemo />
         <div className="max-w-7xl mx-auto w-full">
           <div className="px-4">
+            <BeforeAfter />
             <About />
           </div>
         </div>
