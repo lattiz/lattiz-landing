@@ -1,5 +1,5 @@
 import HeroParallaxDemo from "./components/hero-parallax-demo";
-import TrustedBy from "./components/Trusted";
+import BeforeAfter from "./components/BeforeAfter";
 import { About } from "./components/About";
 import { FeaturesData, HowItWorksData, FaqsData } from "./data/content";
 import { HowItWorks } from "@/app/components/HowItWorks"
