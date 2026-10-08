@@ -250,7 +250,7 @@ export const Navbar: React.FC = () => {
             custom={links.length}
             style={{ willChange: "transform, opacity" }}
           >
-            <a href="dashboard.lattiz.app" className="flex flex-row gap-2">
+            <a href="https://dashboard.lattiz.app" className="flex flex-row gap-2">
               Acceso clientes <Home className="ml-2 h-5 w-5" />
             </a>
           </motion.li>
