@@ -26,7 +26,7 @@ const SITE_URL = "https://lattiz.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lattiz | Página web para tu negocio y aparece en Google",
+    default: "Lattiz | La página web de tu negocio, lista en minutos ",
     template: "%s | Lattiz",
   },
   description:
@@ -103,7 +103,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             aria-hidden="true"
             className="fixed bottom-0 left-0 right-0 z-50 h-14 pointer-events-none"
             style={{
-              backdropFilter: "blur(1px)",
+              backdropFilter: "blur(2px)",
               background:
                 "linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 70%, transparent 100%)",
             }}

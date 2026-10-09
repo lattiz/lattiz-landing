@@ -1,4 +1,5 @@
 import { Clock, X, Check, Zap } from "lucide-react";
+import { } from "framer-motion"
 
 // Referencia de mercado (misma que la sección "Nosotros"): agencia $6,000 – $80,000 MXN.
 const AGENCY = {
@@ -28,9 +29,8 @@ const BeforeAfter = () => {
         label, time, price, points, good,
     }: { label: string; time: string; price: string; points: string[]; good?: boolean }) => (
         <div
-            className={`flex flex-1 flex-col gap-5 rounded-3xl p-5 md:p-8 ${
-                good ? "bg-foreground border-2 border-primary" : "bg-white/5 border border-white/10 text-white"
-            }`}
+            className={`flex flex-1 flex-col gap-5 rounded-3xl p-5 md:p-8 ${good ? "bg-foreground border-2 border-primary" : "bg-white/5 border border-white/10 text-white"
+                }`}
         >
             <span className="text-xs font-bold uppercase md:text-sm tracking-wide opacity-70">{label}</span>
             <div className="flex items-center gap-3">
