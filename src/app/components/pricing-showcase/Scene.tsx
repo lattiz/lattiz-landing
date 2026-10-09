@@ -46,14 +46,31 @@ export default function Scene({ plan, eventSource, hoveredRef, active }: ScenePr
     );
 }
 
+/** Alto aproximado del stack en Pro (3 capas inclinadas), antes de escalar. */
+const PRO_STACK_HEIGHT = 5.6;
+const PRO_STACK_WIDTH = { compact: 4.5, wide: 6 };
+
 /** Escala de la escena según el viewport 3D visible (móvil vs. escritorio). */
 function useResponsiveLayout() {
     const { width, height } = useThree((state) => state.viewport);
     const compact = width < 6;
-    const scale = Math.min(width / (compact ? 4.4 : 7.2), height / 6.6, 1);
-    // En móvil desplazamos el stack a la izquierda para dejar sitio a las etiquetas.
-    const offsetX = compact ? -width * 0.16 : -0.6;
-    return { scale, offsetX, compact };
+    const primaryHeight = LAYER_WIDTH / SHOWCASE_LAYERS[0].aspect;
+
+    // Básica: una sola capa, ocupa buena parte del canvas.
+    const basicScale = Math.min((width * (compact ? 0.9 : 0.6)) / LAYER_WIDTH, (height * 0.8) / primaryHeight);
+    // Pro: el stack completo tiene que caber en alto y dejar sitio a las etiquetas.
+    const proScale = Math.min(
+        height / PRO_STACK_HEIGHT,
+        width / (compact ? PRO_STACK_WIDTH.compact : PRO_STACK_WIDTH.wide),
+    );
+
+    // En Pro el stack se desplaza a la izquierda para dejar sitio a las etiquetas.
+    const offsetX = compact ? -width * 0.15 : -0.6;
+    // Las etiquetas se anclan en coordenadas de mundo (no crecen con la escala del stack).
+    const labelWorldX = compact ? width / 2 - 1.65 : Math.min(2.4, width / 2 - 2.6);
+    const labelX = (labelWorldX - offsetX) / proScale;
+
+    return { basicScale, proScale, offsetX, labelX, compact };
 }
 
 type ShowcaseContentProps = {
@@ -69,7 +86,7 @@ function ShowcaseContent({ pro, hoveredRef, labelContainer }: ShowcaseContentPro
             texture.anisotropy = 8;
         }
     });
-    const { scale, offsetX, compact } = useResponsiveLayout();
+    const { basicScale, proScale, offsetX, labelX, compact } = useResponsiveLayout();
 
     // En Pro la luz direccional gana peso para que las capas inclinadas se sombreen.
     const lights = useSpring({
@@ -78,7 +95,11 @@ function ShowcaseContent({ pro, hoveredRef, labelContainer }: ShowcaseContentPro
         config: LAYER_SPRING,
     });
 
-    const { stackX } = useSpring({ stackX: pro ? offsetX : 0, config: LAYER_SPRING });
+    const stack = useSpring({
+        x: pro ? offsetX : 0,
+        scale: pro ? proScale : basicScale,
+        config: LAYER_SPRING,
+    });
 
     return (
         <>
@@ -87,7 +108,7 @@ function ShowcaseContent({ pro, hoveredRef, labelContainer }: ShowcaseContentPro
             <pointLight position={[-5, -2, 3]} intensity={6} color="#3b82f6" />
 
             <ParallaxRig hoveredRef={hoveredRef}>
-                <animated.group position-x={stackX} scale={scale}>
+                <animated.group position-x={stack.x} scale={stack.scale}>
                     {SHOWCASE_LAYERS.map((layer, index) => (
                         <Layer
                             key={layer.id}
@@ -96,6 +117,7 @@ function ShowcaseContent({ pro, hoveredRef, labelContainer }: ShowcaseContentPro
                             texture={textures[index]}
                             pro={pro}
                             compact={compact}
+                            labelX={labelX}
                             hoveredRef={hoveredRef}
                             labelContainer={labelContainer}
                         />
@@ -129,11 +151,13 @@ type LayerProps = {
     texture: THREE.Texture;
     pro: boolean;
     compact: boolean;
+    /** Posición X local de la etiqueta. */
+    labelX: number;
     hoveredRef: RefObject<boolean>;
     labelContainer: RefObject<HTMLDivElement | null>;
 };
 
-function Layer({ layer, index, texture, pro, compact, hoveredRef, labelContainer }: LayerProps) {
+function Layer({ layer, index, texture, pro, compact, labelX, hoveredRef, labelContainer }: LayerProps) {
     const parallaxRef = useRef<THREE.Group>(null);
     const materialRef = useRef<THREE.MeshStandardMaterial>(null);
     const isPrimary = index === 0;
@@ -190,7 +214,7 @@ function Layer({ layer, index, texture, pro, compact, hoveredRef, labelContainer
             </group>
 
             <Html
-                position={[compact ? 1.25 : 1.9, 0, 0]}
+                position={[labelX, 0, 0]}
                 // Contenedor fijo: sin él, <Html> cambia de nodo padre al conectar
                 // `eventSource` y React desmonta la etiqueta a mitad de render.
                 portal={labelContainer as RefObject<HTMLElement>}

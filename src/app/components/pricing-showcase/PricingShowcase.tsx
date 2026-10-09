@@ -64,7 +64,7 @@ export default function PricingShowcase() {
                 ref={canvasWrapperRef}
                 onPointerEnter={() => (hoveredRef.current = true)}
                 onPointerLeave={() => (hoveredRef.current = false)}
-                className="relative mt-4 h-[460px] w-full touch-pan-y md:h-[600px]"
+                className="relative mt-4 h-[560px] w-full touch-pan-y md:h-[min(860px,90vh)]"
             >
                 <Scene plan={plan} eventSource={canvasWrapperRef} hoveredRef={hoveredRef} active={inView} />
             </div>

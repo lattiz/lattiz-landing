@@ -31,7 +31,7 @@ export const SHOWCASE_LAYERS: ShowcaseLayer[] = [
         id: "ui",
         texture: "/ui-layer-base.webp",
         aspect: 897 / 616,
-        proY: 1.6,
+        proY: 1.4,
         annotation: {
             title: "Custom Micro-interactions",
             description: "Animaciones y componentes interactivos en cada sección.",
@@ -53,7 +53,7 @@ export const SHOWCASE_LAYERS: ShowcaseLayer[] = [
         id: "seo",
         texture: "/ui-layer-seo.webp",
         aspect: 906 / 730,
-        proY: -1.6,
+        proY: -1.4,
         annotation: {
             title: "Advanced SEO Built-in",
             description: "Metadatos, sitemap y velocidad optimizados desde el día uno.",
