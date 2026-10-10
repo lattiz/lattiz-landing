@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { PLAN_OPTIONS, type PlanId } from "@/app/data/pricing-showcase";
 import { PlanToggle } from "./PlanToggle";
+import { Header } from "../ui/header";
+import { Layout } from "lucide-react";
 
 // WebGL solo existe en el navegador: el canvas no se prerenderiza.
 const Scene = dynamic(() => import("./Scene"), {
@@ -29,20 +31,20 @@ export default function PricingShowcase() {
         <section
             ref={sectionRef}
             aria-label="Comparativa de plantillas"
-            className="relative w-full overflow-hidden rounded-[2rem] border border-[#ffffff]/10 bg-[#0a0a0a] py-12 md:py-16"
+            className="relative w-full overflow-hidden"
         >
             {/* Fondo: retícula técnica + halo */}
             <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+                className="absolute inset-0 bg-[linear-gradient(var(--color-primary),transparent_1px),linear-gradient(90deg,var(--color-primary),transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
             />
             <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,rgba(37,99,235,0.18),transparent_55%)]"
             />
 
-            <div className="relative flex flex-col items-center gap-6 px-4 text-center">
-                <h2 className="text-2xl font-bold text-[#ffffff] md:text-4xl">Mira lo que hay debajo</h2>
+            <div className="relative flex flex-col items-center gap-6 text-center">
+                <Header title="Sitios web de Lattiz" icon={<Layout />} subtitle="Con toda la tecnología de Lattiz" />
                 <PlanToggle options={PLAN_OPTIONS} value={plan} onChange={setPlan} />
                 <div className="h-6">
                     <AnimatePresence mode="wait">

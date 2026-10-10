@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/app/components/Footer";
 import { Navbar } from "@/app/components/Navbar"
 import { SmoothScroll } from "./smooth-scroll";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full bg-background antialiased`}
     >
+      <Analytics />
       <body className="min-h-full flex flex-col">
         <SmoothScroll>
           <Navbar />
