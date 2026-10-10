@@ -7,6 +7,7 @@ import { FAQs } from "./components/FAQs";
 import PricingSection from "@/app/components/Pricing"
 import CTA2 from "./components/CTA";
 import { Features } from "./components/Features";
+import PricingShowcase from "./components/pricing-showcase/PricingShowcase";
 
 export default function Home() {
   return (

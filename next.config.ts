@@ -10,6 +10,7 @@ if (!process.env.LATTIZ_API_URL?.trim()) {
 }
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ['192.168.1.110'],
   images: {
     // Template thumbnails (R2). Keep in sync with THUMBNAIL_HOSTNAME /
     // THUMBNAIL_PATH_PREFIX in src/lib/templates/schema.ts.
