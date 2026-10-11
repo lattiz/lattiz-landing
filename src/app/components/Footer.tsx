@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 // ---------------------------------------------------------------------------
 // Minimal social icon SVGs (lucide-react doesn't ship these)
 // ---------------------------------------------------------------------------
@@ -50,14 +52,15 @@ export default function SiteFooter() {
 		{
 			title: "Contacto",
 			links: [
-				{ label: "contacto@lattiz.app", href: "mailto:hola@lattiz.app" },
+				{ label: "contacto@lattiz.app", href: "mailto:contacto@lattiz.app" },
 			],
 		},
 	]
 
 	const legalLinks = [
-		{ label: "Política de privacidad", href: "https://lattiz.app/privacy" },
-		{ label: "Términos de servicio", href: "https://lattiz.app/terms" },
+		{ label: "Política de privacidad", href: "/privacy" },
+		{ label: "Términos de servicio", href: "/terms" },
+		{ label: "Política de cookies", href: "/cookies" },
 	]
 
 	const year = new Date().getFullYear();
@@ -147,13 +150,13 @@ export default function SiteFooter() {
 					</p>
 					<div className="flex flex-wrap justify-center gap-6">
 						{legalLinks.map((link) => (
-							<a
-								key={link.label}
+							<Link
+								key={link.href}
 								href={link.href}
 								className="text-white/40 hover:text-white/70 text-sm transition-colors"
 							>
 								{link.label}
-							</a>
+							</Link>
 						))}
 					</div>
 				</div>
