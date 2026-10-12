@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
 
   const renderLogo = () => {
     return (
-      <a href="#Inicio" className="w-fit" key="logo-image">
+      <a href="/" className="w-fit" key="logo-image">
         <Image
           src={"/lattiz_logo_white.svg"}
           alt="logo"
