@@ -85,12 +85,12 @@ export default function CTA2() {
 
           {/* CTA */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="https://lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
+            <a href="https://dashboard.lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
               <button
                 type="button"
                 className="flex w-full items-center justify-between rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer"
               >
-                <span>Lanza tu sitio</span>
+                <span>Prueba Lattiz gratis</span>
 
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <ArrowRight className="h-6 w-6" color="white" />

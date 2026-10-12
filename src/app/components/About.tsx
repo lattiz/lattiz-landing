@@ -4,7 +4,7 @@ import { Header } from "./ui/header"
 
 export const About = () => {
     return (
-        <div className="flex flex-col w-full mt-32 flex-wrap">
+        <div className="flex flex-col w-full flex-wrap">
             <Header title="Nosotros" subtitle="Hecho para el negocio mexicano de hoy." icon={<Users className="size-6" color="var(--color-primary)" />} />
 
 

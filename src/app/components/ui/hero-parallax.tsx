@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -10,18 +11,31 @@ import {
 
 import useIsMobile from "@/app/hooks/isMobile";
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-}) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+export type HeroProduct = {
+  title: string;
+  link: string;
+  thumbnail: string;
+};
+
+const CARDS_PER_ROW = 5;
+const ROWS = 3;
+
+// Repeat the products so all three rows stay full even with fewer than 15.
+function fillRows(products: HeroProduct[]): HeroProduct[][] {
+  if (products.length === 0) return Array.from({ length: ROWS }, () => []);
+  return Array.from({ length: ROWS }, (_, row) =>
+    Array.from(
+      { length: CARDS_PER_ROW },
+      (_, col) => products[(row * CARDS_PER_ROW + col) % products.length],
+    ),
+  );
+}
+
+export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
+  const [firstRow, secondRow, thirdRow] = React.useMemo(
+    () => fillRows(products),
+    [products],
+  );
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -70,29 +84,29 @@ export const HeroParallax = ({
         className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
+          {firstRow.map((product, i) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={i}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
+          {secondRow.map((product, i) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={i}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
+          {thirdRow.map((product, i) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={i}
             />
           ))}
         </motion.div>
@@ -138,11 +152,7 @@ export const ProductCard = ({
   product,
   translate,
 }: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
+  product: HeroProduct;
   translate: MotionValue<number>;
 }) => {
   return (
@@ -153,19 +163,20 @@ export const ProductCard = ({
       whileHover={{
         y: -20,
       }}
-      key={product.title}
       className="group/product h-96 w-[30rem] relative shrink-0"
     >
       <a
         href={product.link}
+        target="_blank"
+        rel="noopener"
         className="block group-hover/product:shadow-2xl "
       >
-        <img
+        <Image
           src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title}
+          fill
+          sizes="30rem"
+          className="object-cover object-left-top"
+          alt={`Vista previa de la plantilla ${product.title}`}
         />
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 hover:cursor-text"></div>

@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
-import { X, Menu, Home } from "lucide-react"
+import { X, Menu, Home, ArrowUpRight } from "lucide-react"
 import Image from "next/image";
-import { link } from "fs";
 
 const navItemVariants: Variants = {
   hidden: {
@@ -112,7 +111,7 @@ export const Navbar: React.FC = () => {
         variants={navbarVariants}
         initial="hidden"
         animate="visible"
-        className="w-[85%] md:w-[60%] fixed flex h-12 px-6 pr-[0.1] rounded-full justify-between items-center overflow-hidden left-1/2 top-8 z-50 md:h-15 md:max-w-6xl xl:max-w-7xl bg-black/75 backdrop-blur-xs"
+        className="w-[85%] md:w-[60%] fixed flex h-12 px-6 pr-[0.1] rounded-full justify-between items-center overflow-hidden left-1/2 top-8 z-50 md:h-15 md:max-w-6xl xl:max-w-7xl bg-black/75 backdrop-blur-[1px]"
       >
         <motion.div
           initial={{ opacity: 0, transform: "translate3d(-20px, 0, 0)" }}
@@ -169,7 +168,7 @@ export const Navbar: React.FC = () => {
               type="button"
               className="flex w-full items-center justify-center rounded-full bg-[#FFF] px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer"
             >
-              <span>Acceso clientes</span> <Home className="ml-2 h-5 w-5" />
+              <span>Prueba gratis 3 días</span> <ArrowUpRight className="ml-2 h-5 w-5" />
             </button>
           </a>
         </motion.div>
@@ -251,7 +250,7 @@ export const Navbar: React.FC = () => {
             style={{ willChange: "transform, opacity" }}
           >
             <a href="https://dashboard.lattiz.app" className="flex flex-row gap-2">
-              Acceso clientes <Home className="ml-2 h-5 w-5" />
+              Prueba gratis 3 días <ArrowUpRight />
             </a>
           </motion.li>
         </ul>

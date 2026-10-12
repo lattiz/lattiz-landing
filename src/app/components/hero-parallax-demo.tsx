@@ -1,77 +1,26 @@
-"use client";
-import React from "react";
-import { HeroParallax } from "@/app/components/ui/hero-parallax";
+import { HeroParallax, type HeroProduct } from "@/app/components/ui/hero-parallax";
+import { getTemplates } from "@/lib/templates/get-templates";
 
-export default function HeroParallaxDemo() {
-  return <HeroParallax products={products} />;
+const HERO_TEMPLATES_COUNT = 8;
+
+// Server Component: the templates come from getTemplates() (ISR, 300 s), so the
+// home stays static and only the minimal card data reaches the client bundle.
+export default async function HeroParallaxDemo() {
+  return <HeroParallax products={await getHeroProducts()} />;
 }
-export const products = [
-  {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/moonbeam.png",
-  },
-  {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/rogue.png",
-  },
 
-  {
-    title: "Editorially",
-    link: "https://editorially.org",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/editorially.png",
-  },
-  {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/editrix.png",
-  },
-  {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/pixelperfect.png",
-  },
-
-  {
-    title: "Algochurn",
-    link: "https://algochurn.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/algochurn.png",
-  },
-  {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/aceternityui.png",
-  },
-  {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-  },
-  {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/smartbridge.png",
-  },
-  {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/renderwork.png",
-  },
-];
+async function getHeroProducts(): Promise<HeroProduct[]> {
+  try {
+    const templates = await getTemplates();
+    return templates.slice(-HERO_TEMPLATES_COUNT).map((template) => ({
+      title: template.name,
+      link: template.previewUrl,
+      thumbnail: template.thumbnailUrl,
+    }));
+  } catch (error) {
+    // Unlike /templates, the home has no error boundary: render the hero
+    // without cards rather than failing the whole page.
+    console.error("[hero] Could not load templates:", error);
+    return [];
+  }
+}

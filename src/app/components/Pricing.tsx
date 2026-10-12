@@ -10,7 +10,7 @@ import { Header } from './ui/header';
 const PAYMENT_FREQUENCIES: ('mensual' | 'anual')[] = ['mensual', 'anual'];
 // Must match the Stripe "Mantenimiento anual de dominio" one-time Price.
 const DOMAIN_MAINTENANCE_DISCLOSURE =
-  'Se cobra una couta anual de mantenimiento del sitio web: $599 MXN a partir del 2º año en plan Básico y Pro.';
+  'Se cobra una couta anual de mantenimiento del sitio web: $599 MXN + IVA a partir del 2º año en plan Básico y Pro.';
 const TIERS = [
   {
     id: 'individuals',
@@ -21,7 +21,7 @@ const TIERS = [
     },
     description: 'Para salones, consultorios, tiendas locales y restaurantes pequeños.',
     features: [
-      '1 Sitio Web Profesional',
+      '(1) Sitio Web Profesional',
       'Acceso al panel de edición (CMS)',
       `Dominio incluido a elección.`,
       'Certificado de seguridad SSL incluido',
@@ -43,7 +43,7 @@ const TIERS = [
       'Todo lo del plan Básico',
       `Más opciones de dominios (.com, .mx...)`,
       'SEO avanzado pre-configurado',
-      'Sitios web premium con acceso anticipado',
+      'Sitios web premium + secciones premium',
       'Analíticas y métricas sobre clientes ',
       'Acceso anticipado a nuevas funciones',
       'Soporte prioritario por WhatsApp'
@@ -203,7 +203,7 @@ const PricingCard = ({
         rel={tier.id === 'enterprise' ? undefined : 'noopener noreferrer'}
         className={cn(
           'inline-block h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
-          isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95', 
+          isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95',
         )}
       >
         {tier.cta}

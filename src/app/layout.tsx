@@ -27,7 +27,7 @@ const SITE_URL = "https://lattiz.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lattiz | La página web de tu negocio, lista en minutos ",
+    default: "Lattiz | Sitios web en segundos pruébalo gratis",
     template: "%s | Lattiz",
   },
   description:
