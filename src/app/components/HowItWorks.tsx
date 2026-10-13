@@ -18,17 +18,6 @@ interface HowItWorkdsProps {
 export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
     return (
         <section className="relative w-full pt-32">
-            {/* Background Pattern Container */}
-            <div
-                className="absolute inset-0 w-full h-full z-20"
-                style={{
-                    backgroundImage: `url('/images/pattern1.svg')`,
-                    backgroundRepeat: "repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-                aria-hidden="true"
-            />
             <div className="w-full flex flex-col md:flex-row items-start justify-center max-w-7xl mx-auto px-4 relative z-20 gap-8">
                 <div className="w-full md:w-1/2 md:sticky md:top-24 h-fit mx-auto flex justify-center pt-24">
                     <Header title={data.title} icon={<Milestone size={24} color="var(--color-primary)" />} />

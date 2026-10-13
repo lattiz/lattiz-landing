@@ -39,6 +39,9 @@ function logDropped(dropped: DroppedTemplate[]): void {
  * Throws `TemplatesConfigError` when env is missing/invalid and
  * `TemplatesFetchError` on timeout, network failure, non-2xx or a payload that
  * is not an array. A valid empty array resolves to `[]`.
+ *
+ * Each template carries the optional `description`, `category` and `tier`
+ * ("basico" | "pro") fields; see `parseTemplate` in ./schema.
  */
 export const getTemplates = cache(async (): Promise<LandingTemplate[]> => {
   const endpoint = `${getLattizApiUrl()}/public/templates`;

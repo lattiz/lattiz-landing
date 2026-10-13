@@ -77,7 +77,6 @@ export const ProcessCards: React.FC<ProcessCardsProps> = ({ cards }) => {
 		>
 			{cards.map((card, index) => {
 				const isLeft = index % 2 === 0;
-				const stepNumber = String(index + 1).padStart(2, "0");
 
 				return (
 					<div key={index}>
@@ -93,10 +92,7 @@ export const ProcessCards: React.FC<ProcessCardsProps> = ({ cards }) => {
 								whileHover={{ scale: 1.1 }}
 								transition={{ duration: 0.3 }}
 							>
-								{/* Main Circle with Icon */}
-								<div className="relative w-20 h-20 md:w-24 md:h-24">
-									{/* Dashed Circle Border */}
-									<div className="absolute inset-0 bg-secondary border-2 border-quaternary rounded-full" />
+								<div className="relative w-20 h-20 md:w-24 md:h-24 mb-2">
 
 									{/* Icon */}
 									<div className="absolute inset-0 pb-4 flex items-center justify-center">
@@ -109,9 +105,9 @@ export const ProcessCards: React.FC<ProcessCardsProps> = ({ cards }) => {
 									className="absolute -bottom-2 left-1/2 -translate-x-1/2"
 									transition={{ duration: 0.3 }}
 								>
-									<div className="bg-secondary border-2 border-quaternary rounded-full px-2 py-1">
-										<span className="font-bold text-[#60605c] text-base md:text-lg font-primary uppercase">
-											{stepNumber}
+									<div className="bg-secondary border-2 border-quaternary rounded-full px-3 py-1">
+										<span className="font-bold text-black text-base md:text-lg font-primary uppercase">
+											{index + 1}
 										</span>
 									</div>
 								</motion.div>

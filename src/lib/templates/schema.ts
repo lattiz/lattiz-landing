@@ -2,11 +2,14 @@
 // every item is checked individually and invalid ones are dropped, never the
 // whole list.
 
+export type TemplateTier = "basico" | "pro";
+
 export interface LandingTemplate {
   id: string;
   name: string;
   description?: string;
   category?: string;
+  tier?: TemplateTier;
   previewUrl: string;
   thumbnailUrl: string;
   sortOrder: number;
@@ -75,6 +78,20 @@ function optionalString(value: unknown): string | undefined | null {
   return trimmed === "" ? undefined : trimmed;
 }
 
+// The tier is a display hint, so an unknown value is treated as absent (no
+// badge) instead of dropping an otherwise valid template.
+export function normalizeTier(value: unknown): TemplateTier | undefined {
+  if (typeof value !== "string") return undefined;
+  const key = value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+  if (key === "pro") return "pro";
+  if (key === "basico" || key === "basic") return "basico";
+  return undefined;
+}
+
 export function parseTemplate(raw: unknown, previewsOrigin: string): Result<LandingTemplate> {
   if (!isRecord(raw)) return { ok: false, reason: "not an object" };
 
@@ -89,6 +106,8 @@ export function parseTemplate(raw: unknown, previewsOrigin: string): Result<Land
 
   const category = optionalString(raw.category);
   if (category === null) return { ok: false, reason: "invalid category" };
+
+  const tier = normalizeTier(raw.tier);
 
   if (!isSafePreviewUrl(raw.previewUrl, previewsOrigin)) {
     return { ok: false, reason: `previewUrl is not an https URL on ${previewsOrigin}` };
@@ -109,6 +128,7 @@ export function parseTemplate(raw: unknown, previewsOrigin: string): Result<Land
       name,
       ...(description !== undefined && { description }),
       ...(category !== undefined && { category }),
+      ...(tier !== undefined && { tier }),
       previewUrl: raw.previewUrl,
       thumbnailUrl: raw.thumbnailUrl,
       sortOrder: raw.sortOrder,

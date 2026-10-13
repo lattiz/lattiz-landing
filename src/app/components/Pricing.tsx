@@ -218,7 +218,7 @@ export default function PricingSection() {
   >(PAYMENT_FREQUENCIES[0]);
 
   return (
-    <section className="flex flex-col items-center gap-10 pt-42" id="pricing">
+    <section className="flex flex-col items-center gap-10 pt-42 px-4" id="pricing">
       <Header title="Planes y precios" subtitle='Un plan para cada etapa de tu negocio' icon={<Regex size={24} color='var(--color-primary)' />} />
       <div className="space-y-7 text-center">
         <div className="mx-auto flex w-fit rounded-full bg-[#F3F4F6] p-1 dark:bg-[#222]">

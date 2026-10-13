@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 function BrowserAvatar({
   children,
@@ -88,12 +88,12 @@ export default function CTA2() {
             <a href="https://dashboard.lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
               <button
                 type="button"
-                className="flex w-full items-center justify-between rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer"
+                className="flex w-full items-center justify-between rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer gap-3"
               >
                 <span>Prueba Lattiz gratis</span>
 
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <ArrowRight className="h-6 w-6" color="white" />
+                  <ArrowUpRight className="h-6 w-6" color="white" />
                 </span>
               </button>
             </a>
