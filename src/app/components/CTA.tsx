@@ -1,103 +1,99 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check, ImageIcon, Sparkles } from "lucide-react";
 
-function BrowserAvatar({
-  children,
-  label,
-}: {
-  children: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <Avatar className="h-12 w-12 border-2 border-background bg-card shadow-sm sm:h-14 sm:w-14">
-      <AvatarFallback
-        className="bg-card text-foreground"
-        aria-label={label}
-      >
-        {children}
-      </AvatarFallback>
-    </Avatar>
-  );
-}
+// Pega aquí la URL de la imagen del bloque (ideal: formato 4:3, mín. 1200px de ancho).
+// Mientras esté vacía se muestra un marco de relleno.
+const CUSTOM_TEMPLATE_IMAGE_URL = "/cta.jpeg";
+const CUSTOM_TEMPLATE_IMAGE_ALT =
+  "Ejemplo de una plantilla personalizada con la marca de un negocio local";
+
+const PROMO_DEADLINE = "diciembre 2026";
+
+const BENEFITS = [
+  "Diseñada con tu logo, tus colores y tu estilo",
+  "Pensada para tu giro y para los clientes que quieres atraer",
+  "Lista para publicarse y actualizarla tú mismo en tiempo real",
+];
 
 export default function CTA2() {
   return (
     <section className="relative w-full overflow-hidden rounded-[40px] bg-primary p-6 sm:p-10 md:p-16 lg:p-20 mb-12">
-      {/* Decorative circles */}
-      <div className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block">
-        <div className="absolute right-[-25%] top-1/2 aspect-square h-[700px] w-[700px] -translate-y-1/2 lg:right-[-20%]">
-          <div className="absolute inset-0 rounded-full bg-accent/20" />
-          <div className="absolute inset-[10%] rounded-full bg-accent/20" />
-          <div className="absolute inset-[20%] rounded-full bg-accent/20" />
-          <div className="absolute inset-[30%] rounded-full bg-accent/20" />
-          <div className="absolute inset-[40%] rounded-full bg-accent/20" />
-          <div className="absolute inset-[48%] rounded-full bg-background/20" />
-        </div>
-      </div>
+      {/* Soft glow behind the image */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 top-1/2 hidden h-[560px] w-[560px] -translate-y-1/2 rounded-full bg-accent/20 blur-3xl md:block"
+      />
 
-      <div className="relative z-10 flex flex-col">
-        {/* Browser compatibility avatars */}
-        <div
-          className="mb-6 flex items-center pl-2 sm:mb-8"
-          aria-label="Compatible con navegadores modernos"
-        >
-          <BrowserAvatar label="Google Chrome">
-            <img src="/chrome.svg" alt="Google Chrome" className="h-6 w-6 sm:h-8 sm:w-8" />
-          </BrowserAvatar>
-
-          <div className="-ml-3">
-            <BrowserAvatar label="Safari">
-              <img src="/safari.svg" alt="Safari" className="h-6 w-6 sm:h-8 sm:w-8" />
-            </BrowserAvatar>
-          </div>
-
-          <div className="-ml-3">
-            <BrowserAvatar label="Mozilla Firefox">
-              <img src="/fireforx.svg" alt="Mozilla Firefox" className="h-6 w-6 sm:h-8 sm:w-8" />
-            </BrowserAvatar>
-          </div>
-
-          <div className="-ml-3">
-            <BrowserAvatar label="Más navegadores">
-              <span className="text-sm font-semibold text-muted-foreground sm:text-base">
-                +3
-              </span>
-            </BrowserAvatar>
-          </div>
-        </div>
-
+      <div className="relative z-10 grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
         {/* Copy */}
-        <div className="max-w-2xl">
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold tracking-tight text-[#FFF]">
-            Tu negocio ya existe.
+        <div className="flex flex-col">
+
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-[#FFF] md:text-2xl">
+            ¿Ninguna plantilla se parece a tu negocio?
             <br />
-            <span className="text-[#FFF]">
-              Ahora haz que internet lo sepa.
-            </span>
+            Te hacemos una a tu medida sin costo adicional
           </h2>
 
-          <p className="mb-8 max-w-xl text-base text-[#FFF] sm:text-lg md:mb-10">
-            Ten un sitio web profesional, optimizado para buscadores y
-            compatible con los navegadores que tus clientes usan todos los
-            días. Actualízalo en tiempo real, sin esperar meses para tener
-            presencia en internet.
+          <p className="mb-6 max-w-xl text-[15.6px] text-[#FFF]">
+            Por promoción de lanzamiento, válida hasta {PROMO_DEADLINE}, puedes
+            solicitar una plantilla personalizada que refleje tu marca y tu
+            imagen. Tu sitio se verá como tu negocio, no como el de todos los
+            demás.
           </p>
 
-          {/* CTA */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="https://dashboard.lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
-              <button
-                type="button"
-                className="flex w-full items-center justify-between rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer gap-3"
-              >
-                <span>Prueba Lattiz gratis</span>
-
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <ArrowUpRight className="h-6 w-6" color="white" />
+          <ul className="mb-8 flex flex-col gap-3 md:mb-10">
+            {BENEFITS.map((benefit) => (
+              <li key={benefit} className="flex items-start gap-3 text-sm text-[#FFF] sm:text-base">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFF]/20">
+                  <Check aria-hidden="true" className="h-3.5 w-3.5" color="white" />
                 </span>
-              </button>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTAs */}
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+            <a
+              href="https://dashboard.lattiz.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between gap-3 rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFF] sm:w-fit"
+            >
+              <span>Solicita tu plantilla personalizada</span>
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary">
+                <ArrowUpRight aria-hidden="true" className="h-6 w-6" color="white" />
+              </span>
+              <span className="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+
+            <a
+              href="/templates"
+              className="inline-flex min-h-11 items-center justify-center text-sm font-medium text-[#FFF] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFF]"
+            >
+              Ver plantillas disponibles
             </a>
           </div>
+        </div>
+
+        {/* Image slot */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-[#FFF]/10 shadow-2xl ring-1 ring-[#FFF]/25">
+          {CUSTOM_TEMPLATE_IMAGE_URL ? (
+            // eslint-disable-next-line @next/next/no-img-element -- host externo aún no configurado en next.config
+            <img
+              src={CUSTOM_TEMPLATE_IMAGE_URL}
+              alt={CUSTOM_TEMPLATE_IMAGE_ALT}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-[#FFF]/70"
+            >
+              <ImageIcon className="h-10 w-10" />
+              <span className="text-sm">Tu imagen aquí</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

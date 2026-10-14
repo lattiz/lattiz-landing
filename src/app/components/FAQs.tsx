@@ -25,7 +25,7 @@ export const FAQs: React.FC<FAQsProps> = ({ data, items, showAllLink = false, id
             <Header title={data.eyebrow} subtitle={data.title} icon={<CircleQuestionMark size={24} color="var(--color-primary)" />} />
             <Faq3 faqs={items} />
             {showAllLink && (
-                <div className="flex justify-center">
+                <div className="flex justify-center pb-8 pt-6">
                     <Link
                         href="/faqs"
                         className="flex w-full items-center justify-between gap-3 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-primary shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[280px]"
