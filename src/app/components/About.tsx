@@ -16,7 +16,8 @@ export const About = () => {
 El algoritmo decide quién te ve, cuándo y en qué orden. Un sitio web propio es diferente: es tuyo, aparece en Google, y trabaja para ti mientras tú atiendes el negocio.
 
 7 de cada 10 mexicanos busca en internet antes de comprar o visitar un negocio. Los que tienen sitio web obtienen los clientes y generan reseñas. Los que no, pierden oportunidades.
-Una agencia cobra de $6,000 a $80,000 pesos y te entrega algo que no puedes tocar. Lattiz te da lo mismo — con dominio incluido — por menos de lo que pagas de internet al mes. Y tú controlas todo."/>
+
+Una agencia cobra de $6,000 a $80,000 pesos y te entrega algo que no puedes modificar sin volver a pagar. Lattiz te da todo incluido — por menos de lo que pagas de internet al mes. Y tú controlas todo."/>
             </div>
         </div>
     )
