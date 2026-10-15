@@ -27,6 +27,7 @@ const WIDE_PLACEMENT: Record<number, string> = {
     3: "md:col-span-2 md:col-start-2 md:row-start-2",
     5: "md:col-span-2 md:col-start-2 md:row-start-3",
     6: "md:col-span-2 md:row-start-4",
+    8: "md:col-span-2 md:row-start-5",
 };
 
 export const Features: React.FC<FeaturesProps> = ({ data }) => {
@@ -44,7 +45,7 @@ export const Features: React.FC<FeaturesProps> = ({ data }) => {
                                 src={card.img}
                                 alt=""
                                 style={{ maskImage: "linear-gradient(black 85%, transparent)" }}
-                                className="object-cover w-full h-[220px] md:h-[400px] "
+                                className="object-cover w-full h-[220px] md:h-[450px] "
                             />
                             <h3 className="text-md md:text-lg font-semibold">{card.title}</h3>
                             <p className="text-[14px] pt-2 md:text-base">{card.description}</p>

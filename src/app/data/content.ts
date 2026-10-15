@@ -101,6 +101,16 @@ export const FeaturesData = {
                 img: "/benefits/b6.jpeg",
                 title: "Nos adaptamos a tu negocio",
                 description: "Reservas, pedidos, formularios u otras integraciones: cuéntanos qué necesitas y lo conectamos."
+            },
+            {
+                img: "/benefits/8.jpeg",
+                title: "Personaliza con bloques y secciones",
+                description: "Arrastra y suelta secciones pre-diseñadas que incluyen funcionalidades y animaciones especiales para que tu sitio web sea único."
+            },
+            {
+                img: "/benefits/9.jpeg",
+                title: "Edita tu sitio web desde tu celular",
+                description: "Puedes editar y actualizar tu sitio web desde tu celular, sin necesidad de una computadora. Todo lo que necesitas está en la palma de tu mano."
             }
         ]
     }
