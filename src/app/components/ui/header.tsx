@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ title, subtitle, icon, orientation = "horizontal" }) => {
     return (
-        <div className={`font-bold mb-4 flex ${orientation === "horizontal" ? "flex-row" : "flex-col"} gap-16 md:gap-2 w-full justify-between items-center`}>
+        <div className={`font-bold mb-4 flex ${orientation === "horizontal" ? "flex-row gap-16" : "flex-col gap-2"}  md:gap-2 w-full justify-between items-center`}>
             <div className="flex flex-row gap-3 bg-foreground rounded-full items-center px-2 py-1 md:px-4 md:py-2">
                 {icon}
                 <span className="text-xs md:text-2xl">{title}</span>

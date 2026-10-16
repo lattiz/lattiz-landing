@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/app/components/Footer";
 import { Navbar } from "@/app/components/Navbar"
 import { SmoothScroll } from "./smooth-scroll";
+import { PageLoader } from "@/app/components/ui/page-loader";
 import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <Analytics />
       <body className="min-h-full flex flex-col bg-foreground">
         <SmoothScroll>
+          <PageLoader />
           <Navbar />
           {children}
                     <div

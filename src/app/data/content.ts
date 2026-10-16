@@ -58,8 +58,8 @@ export const BenefitsData = {
 
 export const FeaturesData = {
     data: {
-        eyebrow: "Características y Beneficios",
-        title: "Construido para que estés en línea rápido.",
+        eyebrow: "Deberías estar en línea rápido, sin gastar de más ni complicarte la vida.",
+        title: "Características",
         subtitle: "Plantillas listas y herramientas simples que te ayudan a publicar tu sitio sin rodeos y sin perder dinero en el intento.",
         cards: [
             {
@@ -119,8 +119,8 @@ export const FeaturesData = {
 export const HowItWorksData = {
     data: {
         eyebrow: "¿Cómo funciona?",
-        title: "De cero a en línea en 3 pasos.",
-        subtitle: "Continúa deslizando hacia abajo.",
+        title: "¿Cómo funciona?",
+        subtitle: "De 0 a estar en la nube en 3 simples pasos.",
         cards: [
             {
                 img: "/how/1.svg",
@@ -144,8 +144,8 @@ export const HowItWorksData = {
 export const FaqsData = {
     data:
     {
-        eyebrow: "Preguntas frecuentes",
-        title: "Todo lo que necesitas saber antes de empezar."
+        eyebrow: "Todo lo que necesitas saber antes de empezar.",
+        title: "FAQs"
     }
 }
 
@@ -173,8 +173,8 @@ export const TestimonialsData = {
 
 export const PricingData = {
     data: {
-        eyebrow: "Precios",
-        title: "Un plan para cada etapa de tu negocio",
+        eyebrow: "Un plan para cada etapa de tu negocio precios",
+        title: "Planes y precios",
         description: " Emprendedores y dueños de negocio que publicaron su sitio sin complicaciones y sin gastar de más.",
     }
 }

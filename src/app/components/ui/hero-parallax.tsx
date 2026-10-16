@@ -135,7 +135,7 @@ const Pills = ({ steps }: { steps: string[] }) => {
 export const Header = () => {
   const isMobile = useIsMobile();
   return (
-    <div className={`max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full text-center left-0 ${isMobile ? "top-[calc(50vh-100px)]" : "top-0"}`}>
+    <div className={`max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full text-center left-0 ${isMobile ? "top-[calc(50vh-230px)]" : "top-0"}`}>
       <h1 className="text-2xl md:text-7xl font-bold">
         Tu sitio web ya está <br />  construido, <span className="border-b-4 border-primary px-2 rounded-none">solo lánzalo.</span>
       </h1>
