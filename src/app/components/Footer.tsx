@@ -24,6 +24,7 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 
 
 const SOCIAL_ICONS = {
+	instagram: InstagramIcon,
 	linkedin: LinkedInIcon,
 } as const;
 
@@ -36,6 +37,7 @@ type SocialKey = keyof typeof SOCIAL_ICONS;
 export default function SiteFooter() {
 
 	const socials = [
+		{ key: "Instagram", href: "https://www.instagram.com/lattiz.app/", label: "Instagram" },
 		{ key: "linkedin", href: "https://www.linkedin.com/company/llattiz/", label: "LinkedIn" },
 	]
 
@@ -66,7 +68,7 @@ export default function SiteFooter() {
 	const getIcon = (idx: number) => {
 		switch (idx) {
 			case 0:
-				return LinkedInIcon;
+				return InstagramIcon;
 			case 1:
 				return LinkedInIcon;
 			default:
