@@ -20,6 +20,7 @@ import {
     type VideoKey,
 } from "@/app/data/template-compare";
 import { PlanSelector, tabId } from "./PlanSelector";
+import { ScrollIndicator } from "../ui/scroll-indicator";
 
 gsap.registerPlugin(ScrollTrigger);
 // Evita refrescos cuando la barra de URL del móvil se colapsa.
@@ -52,16 +53,15 @@ const SCREEN_INSET: Record<DeviceKind, string> = {
 
 const GLOW_PRO: CSSProperties = {
     background:
-        "radial-gradient(60% 50% at 50% 55%, color-mix(in oklab, var(--color-primary) 34%, transparent), transparent 72%)",
+        "radial-gradient(60% 50% at 50% 55%, color-mix(in oklab, var(--color-primary) 74%, transparent), transparent 82%)",
 };
 const GLOW_BASIC: CSSProperties = {
-    background: "radial-gradient(60% 50% at 50% 55%, var(--color-foreground), transparent 72%)",
+    background: "radial-gradient(60% 50% at 50% 55%, #0e0e0e, transparent 62%)",
 };
 
 type NavigatorWithConnection = Navigator & { connection?: { saveData?: boolean } };
 
 const videoKey = (plan: Plan, kind: DeviceKind): VideoKey => `${plan}-${kind}`;
-const isEl = (el: HTMLElement | null): el is HTMLElement => el !== null;
 const pad = (n: number) => String(n).padStart(2, "0");
 const formatStep = (current: number) =>
     COPY.stepOf.replace("{current}", pad(current)).replace("{total}", pad(TOTAL_STEPS));
@@ -70,7 +70,6 @@ const otherPlan = (plan: Plan): Plan => (plan === "pro" ? "basic" : "pro");
 type DeviceProps = {
     kind: DeviceKind;
     plan: Plan;
-    wrapRef: (el: HTMLDivElement | null) => void;
     shouldLoad: boolean;
     reduced: boolean;
     loaded: ReadonlySet<VideoKey>;
@@ -84,7 +83,6 @@ type DeviceProps = {
 function Device({
     kind,
     plan,
-    wrapRef,
     shouldLoad,
     reduced,
     loaded,
@@ -101,9 +99,8 @@ function Device({
     return (
         <div className={cn("grid min-h-0 min-w-0 place-items-center [container-type:size]", className)}>
             <div
-                ref={wrapRef}
                 className={cn(
-                    "relative will-change-transform",
+                    "relative",
                     isDesktop
                         ? "aspect-[3944/2564] w-[min(100cqw,calc(100cqh*1.5382))]"
                         : "aspect-[490/1000] w-[min(100cqw,calc(100cqh*0.49))]",
@@ -200,14 +197,8 @@ export default function TemplateCompareShowcase() {
 
     const sectionRef = useRef<HTMLElement>(null);
     const stageRef = useRef<HTMLDivElement>(null);
-    const glowRef = useRef<HTMLDivElement>(null);
-    const selectorRef = useRef<HTMLDivElement>(null);
     const hintRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
-    const macWrapRef = useRef<HTMLDivElement | null>(null);
-    const phoneWrapRef = useRef<HTMLDivElement | null>(null);
     const closingPanelRef = useRef<HTMLDivElement>(null);
-    const closingBandRef = useRef<HTMLDivElement>(null);
     const stepRef = useRef<HTMLSpanElement>(null);
     const barRef = useRef<HTMLDivElement>(null);
 
@@ -327,14 +318,9 @@ export default function TemplateCompareShowcase() {
                 const mode = context.conditions?.list ? "list" : "takeover";
                 const rows = gsap.utils.toArray<HTMLElement>(".js-row", stage);
                 const bars = gsap.utils.toArray<HTMLElement>(".js-bar", stage);
-                const devices = [macWrapRef.current, phoneWrapRef.current].filter(isEl);
-                const macWrap = macWrapRef.current;
-                const phoneWrap = phoneWrapRef.current;
-                const closing = mode === "list" ? closingBandRef.current : closingPanelRef.current;
-                const text = textRef.current;
-                const selector = selectorRef.current;
+                // En list el cierre está visible desde el inicio; en takeover es el último "paso" del panel.
+                const closing = mode === "takeover" ? closingPanelRef.current : null;
                 const hint = hintRef.current;
-                const glow = glowRef.current;
                 const step = stepRef.current;
                 const bar = barRef.current;
                 if (!rows.length) return;
@@ -376,26 +362,7 @@ export default function TemplateCompareShowcase() {
                     },
                 });
 
-                // INTRO: entrada de dispositivos, selector y glow.
-                if (macWrap) {
-                    tl.fromTo(
-                        macWrap,
-                        { xPercent: -8, opacity: 0, scale: 0.94 },
-                        { xPercent: 0, opacity: 1, scale: 1, duration: INTRO },
-                        0,
-                    );
-                }
-                if (phoneWrap) {
-                    tl.fromTo(
-                        phoneWrap,
-                        { xPercent: 8, opacity: 0, scale: 0.94 },
-                        { xPercent: 0, opacity: 1, scale: 1, duration: INTRO },
-                        0,
-                    );
-                }
-                if (glow) tl.fromTo(glow, { opacity: 0.35 }, { opacity: 0.7, duration: INTRO }, 0);
-                if (selector) tl.fromTo(selector, { autoAlpha: 0 }, { autoAlpha: 1, duration: INTRO }, 0);
-                if (text) tl.fromTo(text, { autoAlpha: 0 }, { autoAlpha: 1, duration: INTRO }, 0);
+                // INTRO: todo está visible desde el primer scroll; solo se retira la pista.
                 if (hint) tl.fromTo(hint, { autoAlpha: 1 }, { autoAlpha: 0, duration: INTRO }, INTRO);
 
                 // BODY: playhead de los videos del plan activo.
@@ -412,18 +379,12 @@ export default function TemplateCompareShowcase() {
                     INTRO,
                 );
 
-                // BODY: revelado de filas.
+                // BODY: filas. En list todas son visibles; la barra de acento marca el paso activo.
                 if (mode === "list") {
-                    rows.forEach((row, i) => {
+                    bars.forEach((accent, i) => {
                         const start = INTRO + i * seg;
-                        const accent = bars[i];
-                        const hasNext = i < rows.length - 1;
-                        tl.fromTo(row, { opacity: 0.15, y: 16 }, { opacity: 1, y: 0, duration: seg * 0.5 }, start);
-                        if (hasNext) tl.to(row, { opacity: 0.55, duration: seg * 0.25 }, start + seg);
-                        if (accent) {
-                            tl.fromTo(accent, { scaleY: 0 }, { scaleY: 1, duration: seg * 0.3 }, start);
-                            if (hasNext) tl.to(accent, { scaleY: 0, duration: seg * 0.2 }, start + seg);
-                        }
+                        tl.fromTo(accent, { scaleY: 0 }, { scaleY: 1, duration: seg * 0.3 }, start);
+                        if (i < bars.length - 1) tl.to(accent, { scaleY: 0, duration: seg * 0.2 }, start + seg);
                     });
                 } else {
                     gsap.set(rows, { autoAlpha: 0, y: 24 });
@@ -446,7 +407,7 @@ export default function TemplateCompareShowcase() {
                     });
                 }
 
-                // OUTRO: cierre.
+                // OUTRO: cierre (solo takeover, comparte panel con las filas).
                 if (closing) {
                     tl.fromTo(closing, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: OUTRO }, 1 - OUTRO);
                 }
@@ -529,8 +490,8 @@ export default function TemplateCompareShowcase() {
             </div>
 
             <div ref={stageRef} className="relative h-svh w-full overflow-hidden rounded-3xl">
-                {/* Glow: la opacidad base la anima GSAP; el color cambia por plan con CSS */}
-                <div ref={glowRef} aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-70">
+                {/* Glow: el color cambia por plan con CSS */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-70">
                     <div
                         style={GLOW_PRO}
                         className={cn(
@@ -547,7 +508,7 @@ export default function TemplateCompareShowcase() {
                     />
                 </div>
 
-                <div ref={selectorRef} className="absolute inset-x-0 top-34 z-20 flex justify-center">
+                <div className="absolute inset-x-0 top-34 z-20 flex justify-center">
                     <PlanSelector
                         plan={plan}
                         labels={COPY.plans}
@@ -556,6 +517,7 @@ export default function TemplateCompareShowcase() {
                         onChange={handlePlanChange}
                         onWarm={handleWarm}
                     />
+                    <ScrollIndicator className="absolute top-[calc(100%+2.5rem)] left-1/2 -translate-x-1/2 text-white" />
                 </div>
 
                 <div
@@ -570,24 +532,17 @@ export default function TemplateCompareShowcase() {
                                 <Device
                                     {...deviceProps}
                                     kind="desktop"
-                                    wrapRef={(el) => {
-                                        macWrapRef.current = el;
-                                    }}
                                     className="flex-[1.9] lg:order-1 lg:flex-[2.2]"
                                 />
                             )}
                             <Device
                                 {...deviceProps}
                                 kind="mobile"
-                                wrapRef={(el) => {
-                                    phoneWrapRef.current = el;
-                                }}
                                 className="flex-1 md:flex-[0.8] lg:order-3"
                             />
                         </div>
 
                         <div
-                            ref={textRef}
                             className={cn(
                                 "relative mx-auto w-full max-w-xl lg:order-3 lg:max-w-none lg:self-center lg:shrink-0 lg:basis-[clamp(300px,30vw,400px)] lg:w-[clamp(300px,30vw,400px)]",
                                 reduced
@@ -614,10 +569,10 @@ export default function TemplateCompareShowcase() {
                                         )}
                                     >
                                         <span className="js-bar absolute inset-y-0 left-0 hidden w-0.5 origin-top rounded bg-secondary lg:block" />
-                                        <span className="font-primary text-center md:text-left text-[11px] sm:text-center uppercase font-semibold text-white/50">
+                                        <span className="font-primary text-center md:text-right text-[11px] sm:text-center uppercase font-semibold text-white/50">
                                             {COPY.rows[key].label}
                                         </span>
-                                        <p className="js-row-value text-sm text-center md:text-left leading-snug text-[#000] lg:text-[clamp(11px,1.55svh,14px)]">
+                                        <p className="js-row-value text-sm text-center md:text-right leading-snug text-[#000] lg:text-[clamp(11px,1.55svh,14px)]">
                                             {COPY.rows[key][plan]}
                                         </p>
                                     </li>
@@ -639,7 +594,6 @@ export default function TemplateCompareShowcase() {
 
                     {/* Cierre en ≥ lg: franja bajo los tres bloques */}
                     <div
-                        ref={closingBandRef}
                         className="hidden items-center gap-6 lg:grid lg:h-[clamp(56px,10svh,84px)] lg:grid-cols-[1fr_1.4fr_auto]"
                     >
                         <ClosingContent compact={false} />

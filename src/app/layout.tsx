@@ -97,10 +97,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full bg-background antialiased`}
     >
       <Analytics />
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-foreground">
         <SmoothScroll>
           <Navbar />
           {children}
+                    <div
+            aria-hidden="true"
+            className="fixed top-0 left-0 right-0 z-50 h-8 pointer-events-none"
+            style={{
+              backdropFilter: "blur(2px)",
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 70%, transparent 100%)",
+            }}
+          />
           <div
             aria-hidden="true"
             className="fixed bottom-0 left-0 right-0 z-50 h-14 pointer-events-none"

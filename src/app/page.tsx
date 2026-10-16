@@ -12,17 +12,17 @@ import DesktopTemplateCompare from "./components/template-compare/DesktopTemplat
 export default function Home() {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center overflow-x-hidden">
+      <div className="flex flex-col items-center justify-center overflow-x-hidden bg-foreground">
         <HeroParallaxDemo />
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="px-4 py-26">
+        <div className="bg-[#FFF] mx-auto w-full">
+          <div className="px-4 py-26 max-w-7xl mx-auto">
             <About />
           </div>
         </div>
         <Features data={FeaturesData.data} />
       </div>
+      <HowItWorks data={HowItWorksData.data} />
       <div className="max-w-7xl mx-auto w-full">
-        <HowItWorks data={HowItWorksData.data} />
         <DesktopTemplateCompare />
         <PricingSection />
         <FAQs data={FaqsData.data} items={FEATURED_FAQS} showAllLink id="faq" />

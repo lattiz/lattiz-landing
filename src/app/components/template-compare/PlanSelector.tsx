@@ -74,6 +74,8 @@ export function PlanSelector({ plan, labels, ariaLabel, controlsId, onChange, on
                     </button>
                 );
             })}
+            
         </div>
+        
     );
 }

@@ -120,7 +120,7 @@ export const HowItWorksData = {
     data: {
         eyebrow: "¿Cómo funciona?",
         title: "De cero a en línea en 3 pasos.",
-        subtitle: "Un proceso directo para que tu negocio esté en línea hoy mismo.",
+        subtitle: "Continúa deslizando hacia abajo.",
         cards: [
             {
                 img: "/how/1.svg",
