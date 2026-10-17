@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lattiz | Renta tu página web en segundos, pruébalo gratis",
     description:
-      "Que te encuentren en Google, te escriban por WhatsApp y vean tu menú o servicios las 24 horas. Dominio incluido y sin programadores.",
+      "Renta tu sitio web, aparece en Google y cancela cuando quieras. Todo incluido. Cancela cuando quieras. 1) Escoge un diseño, 2) Personalízalo y 3) Publica tu página web en segundos. Sin agencias ni programadores.",
     url: "/",
     siteName: "Lattiz",
     locale: "es_MX",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lattiz | Renta tu página web en segundos, pruébalo gratis",
     description:
-      "Aparece en Google, recibe mensajes por WhatsApp y actualiza tu página cuando quieras. Dominio incluido.",
+      "Renta tu sitio web, aparece en Google y cancela cuando quieras. Todo incluido. Cancela cuando quieras. 1) Escoge un diseño, 2) Personalízalo y 3) Publica tu página web en segundos. Sin agencias ni programadores.",
     images: ["/og.webp"],
   },
 };
