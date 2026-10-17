@@ -28,11 +28,11 @@ const SITE_URL = "https://lattiz.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lattiz | Sitios web en segundos pruébalo gratis",
+    default: "Lattiz | Renta sitios web en segundos pruébalo gratis",
     template: "%s | Lattiz",
   },
   description:
-    "Crea la página web de tu negocio en minutos y aparece en Google. Dominio incluido, editor sin código y WhatsApp integrado. Sin agencias ni programadores.",
+    "Renta tu sitio web, aparece en Google y cancela cuando quieras. Dominio incluido, editor sin código y WhatsApp integrado. Sin agencias ni programadores.",
   applicationName: "Lattiz",
   keywords: [
     "lattiz",
@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     "página web con dominio incluido",
     "página web con WhatsApp",
     "poner mi negocio en",
+    "saas",
+    "website builder",
+    "website-as-a-service"
   ],
   authors: [{ name: "Lattiz", url: SITE_URL }],
   creator: "Lattiz",
@@ -65,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Lattiz | La página web de tu negocio, lista en minutos",
+    title: "Lattiz | Renta tu página web en segundos, pruébalo gratis",
     description:
       "Que te encuentren en Google, te escriban por WhatsApp y vean tu menú o servicios las 24 horas. Dominio incluido y sin programadores.",
     url: "/",
@@ -83,7 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lattiz | La página web de tu negocio, lista en minutos",
+    title: "Lattiz | Renta tu página web en segundos, pruébalo gratis",
     description:
       "Aparece en Google, recibe mensajes por WhatsApp y actualiza tu página cuando quieras. Dominio incluido.",
     images: ["/og.webp"],
