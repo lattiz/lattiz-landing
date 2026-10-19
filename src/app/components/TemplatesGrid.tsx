@@ -107,7 +107,7 @@ export const TemplatesGrid: React.FC<TemplatesGridProps> = ({ templates }) => {
       {filtered.length > 0 ? (
         <ul
           role="list"
-          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),26rem))] justify-center gap-6"
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),22rem))] justify-center gap-6"
         >
           {filtered.map((template, index) => (
             <li key={template.id} className="flex">
@@ -163,7 +163,7 @@ function TemplateCard({ template, preload }: { template: LandingTemplate; preloa
           fill
           preload={preload}
           sizes="(min-width:1024px) 26rem, (min-width:640px) 50vw, 100vw"
-          className="object-cover object-top motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.03]"
+          className="object-cover rounded object-top motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.03]"
         />
         {template.tier && (
           <div className="absolute left-3 top-3">

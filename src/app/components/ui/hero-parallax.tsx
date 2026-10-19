@@ -142,7 +142,7 @@ export const Header = () => {
       <div className="md:max-w-2xl max-w-[420px] px-10 mx-auto text-sm md:text-lg flex flex-row gap-4 mt-8 text-white">
         Elige una base diseñada profesionalmente, personalízala con tu marca, contenido, y publica en segundos. Sin diseñadores, sin programadores, sin complicaciones.
       </div>
-      <ScrollIndicator className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white" />
+      <ScrollIndicator className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white z-[99]" scrollBy={3} />
       <div className="flex flex-row gap-3 mt-8 justify-center">
          {!isMobile ? <Pills steps={["•  Tu marca en internet ", "• Edita cuando quieras", "• Métricas en tiempo real", "• .com/.mx incluido", "• Cancela cuando quieras"]} /> : null}
       </div>

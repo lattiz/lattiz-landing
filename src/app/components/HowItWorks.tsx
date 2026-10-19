@@ -171,9 +171,11 @@ export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
                         !reduced && "sticky top-0 h-svh",
                     )}
                 >
-                    <div className="w-full md:w-5/12 md:shrink-0 flex flex-col gap-6">
+                    <div className="w-full md:items-start md:w-5/12 md:shrink-0 flex flex-col gap-6">
                         <Header title={data.title} icon={<Milestone size={24} color="var(--color-primary)" />} subtitle={data.subtitle} orientation="vertical" />
-                        <ScrollIndicator className="text-white" tooltipSide="top"/>
+                        <div className="md:pl-10">
+                            <ScrollIndicator className="text-white" tooltipSide="top"/>
+                        </div>
                     </div>
                     <div className="w-full min-w-0 md:w-7/12">
                         {/* Ancho limitado por el alto visible: el video siempre cabe completo bajo la navbar */}

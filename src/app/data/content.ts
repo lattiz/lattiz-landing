@@ -64,53 +64,53 @@ export const FeaturesData = {
         cards: [
             {
                 img: "/benefits/b1.jpeg",
-                title: "Aparece cuando te buscan.",
-                description: "Tus clientes escriben «cafeterías cerca de mí» o «postres fit en Clavería». Con tu propia página, tu negocio entra en esos resultados. Elije una plantilla prediseñada"
+                title: "Aparece cuando te buscan",
+                description: "Que te encuentren en «cafeterías cerca de mí» o «postres fit en Clavería»."
             },
             {
                 img: "/benefits/b2.jpeg",
-                title: "Reseñas que te traen más clientes.",
-                description: "Genera reseñas con un botón. Más reseñas ayudan a que Google te muestre mejor y generan confianza antes de la primera visita."
+                title: "Reseñas que te traen más clientes",
+                description: "Pídelas con un botón: más confianza y mejor visibilidad en Google."
             },
             {
                 img: "/benefits/b3.jpeg",
-                title: "Tu menú y servicios, siempre a la mano.",
-                description: "Precios, horarios, ubicación y catálogo disponibles las 24 horas. Que tu cliente lo vea sin tener que preguntarte por mensaje."
+                title: "Tu menú y servicios, siempre a la mano",
+                description: "Tus clientes ven precios y horarios 24/7, sin tener que escribirte."
             },
             {
                 img: "/benefits/3.jpeg",
-                title: "WhatsApp a un toque.",
-                description: "Un botón y tu cliente te escribe con el mensaje ya listo. De «vi tu página» a «quiero una cita» en segundos."
+                title: "WhatsApp a un toque",
+                description: "Tu cliente te escribe con un toque y el mensaje ya listo."
             },
             {
                 img: "/benefits/b4.jpeg",
-                title: "Todo tu negocio en un solo link.",
-                description: "Tu plan incluye una dirección única y exclusiva que tu mismo escoges para visitar tu página web (dominio). Compártelo y añade tus redes sociales."
+                title: "Todo tu negocio en un solo link",
+                description: "Tu dominio propio, incluido en tu plan. Compártelo y suma tus redes."
             },
             {
                 img: "/benefits/b5.jpeg",
-                title: "Conoce quién te visita y de dónde llega",
-                description: "Visitas, origen de los usuarios y páginas más vistas en un panel sencillo. Decide qué promocionar o mejorar con datos reales, no con corazonadas."
+                title: "Conoce quién te visita",
+                description: "Visitas, origen y páginas más vistas. Decide con datos, no con corazonadas."
             },
             {
                 img: "/benefits/7.jpeg",
                 title: "Actualiza cuando quieras",
-                description: "Nueva promo, nuevo logo, nuevo precio de temporada o servicio: edítalo y personalizado tú y se publica nuevos cambios en segundos."
+                description: "Nueva promo, precio o logo: edítalo tú y se publica en segundos."
             },
             {
                 img: "/benefits/b6.jpeg",
                 title: "Nos adaptamos a tu negocio",
-                description: "Reservas, pedidos, formularios u otras integraciones: cuéntanos qué necesitas y lo conectamos."
+                description: "Reservas, pedidos, formularios: cuéntanos qué necesitas y lo conectamos."
             },
             {
                 img: "/benefits/8.jpeg",
-                title: "Personaliza con bloques y secciones",
-                description: "Arrastra y suelta secciones pre-diseñadas que incluyen funcionalidades y animaciones especiales para que tu sitio web sea único."
+                title: "Personaliza con bloques",
+                description: "Arrastra y suelta secciones prediseñadas con animaciones y funciones listas."
             },
             {
                 img: "/benefits/9.jpeg",
-                title: "Edita tu sitio web desde tu celular",
-                description: "Puedes editar y actualizar tu sitio web desde tu celular, sin necesidad de una computadora. Todo lo que necesitas está en la palma de tu mano."
+                title: "Edita desde tu celular",
+                description: "Actualiza tu sitio desde donde estés, sin necesidad de computadora."
             }
         ]
     }
