@@ -10,6 +10,7 @@ import { CloudShader } from "./ui/cloud-shader";
 import { cn } from "@/app/components/lib/utils";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
 import { ScrollIndicator } from "./ui/scroll-indicator";
+import useIsMobile from "../hooks/isMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 // Evita refrescos cuando la barra de URL del móvil se colapsa.
@@ -147,6 +148,8 @@ export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
         };
     }, []);
 
+    const isMobile = useIsMobile();
+
     return (
         <section ref={sectionRef} className="relative isolate w-full">
             {/* Cielo: una capa del alto del viewport que acompaña todo el recorrido del video */}
@@ -172,9 +175,9 @@ export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
                     )}
                 >
                     <div className="w-full md:items-start md:w-5/12 md:shrink-0 flex flex-col gap-6">
-                        <Header title={data.title} icon={<Milestone size={24} color="var(--color-primary)" />} subtitle={data.subtitle} orientation="vertical" />
-                        <div className="md:pl-10">
-                            <ScrollIndicator className="text-white" tooltipSide="top"/>
+                        <Header title={data.title} icon={<Milestone size={24} color="var(--color-primary)" />} subtitle={data.subtitle} orientation={`${isMobile ? "horizontal" : "vertical"}`} />
+                        <div className="hidden md:flex pl-10 ">
+                            <ScrollIndicator className="text-white" tooltipSide="top" />
                         </div>
                     </div>
                     <div className="w-full min-w-0 md:w-7/12">
@@ -194,6 +197,13 @@ export const HowItWorks: React.FC<HowItWorkdsProps> = ({ data }) => {
                                 className="absolute inset-0 h-full w-full object-cover"
                             />
                         </div>
+                    </div>
+                    {/* indicador de progreso */}
+                    <div className="">
+                        
+                    </div>
+                    <div className="md:hidden mt-4 ">
+                        <ScrollIndicator className="text-white" tooltipSide="top" />
                     </div>
                 </div>
             </div>
