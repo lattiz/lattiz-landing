@@ -93,7 +93,7 @@ export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-20 space-x-20 ">
           {secondRow.map((product, i) => (
             <ProductCard
               product={product}
@@ -116,22 +116,6 @@ export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
   );
 };
 
-const Pills = ({ steps }: { steps: string[] }) => {
-  const isMobile = useIsMobile();
-
-  if (isMobile) return null;
-
-  return (
-    <div className="flex flex-row gap-3 flex-wrap justify-center max-w-md md:max-w-full">
-      {steps.map((step, idx) => (
-        <div className="text-[12px] rounded-full border-1 border-primary text-white px-4 py-2" key={idx}>
-          {step}
-        </div>
-      ))}
-    </div>
-  );
-};
-
 export const Header = () => {
   const isMobile = useIsMobile();
   return (
@@ -143,9 +127,6 @@ export const Header = () => {
         Elige una base diseñada profesionalmente, personalízala con tu marca, contenido, y publica en segundos. Sin diseñadores, sin programadores, sin complicaciones.
       </div>
       <ScrollIndicator className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white z-[99]" scrollBy={3} />
-      <div className="flex flex-row gap-3 mt-8 justify-center">
-         {!isMobile ? <Pills steps={["•  Tu marca en internet ", "• Edita cuando quieras", "• Métricas en tiempo real", "• .com/.mx incluido", "• Cancela cuando quieras"]} /> : null}
-      </div>
     </div>
   );
 };

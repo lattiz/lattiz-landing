@@ -54,16 +54,13 @@ export default function CTA2() {
           {/* CTAs */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
             <a
-              href="https://dashboard.lattiz.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/redireccion"
               className="flex w-full items-center justify-between gap-3 rounded-full bg-background px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFF] sm:w-fit"
             >
               <span>Solicita tu plantilla personalizada</span>
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary">
                 <ArrowUpRight aria-hidden="true" className="h-6 w-6" color="white" />
               </span>
-              <span className="sr-only">(se abre en una pestaña nueva)</span>
             </a>
 
             <a

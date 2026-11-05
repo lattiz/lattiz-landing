@@ -46,7 +46,7 @@ export default function SiteFooter() {
 			title: "Productos",
 			links: [
 				{ label: "Lattiz", href: "https://lattiz.app" },
-				{ label: "Acceso clientes", href: "https://dashboard.lattiz.app" }
+				{ label: "Acceso clientes", href: "/redireccion" }
 			],
 		},
 		{

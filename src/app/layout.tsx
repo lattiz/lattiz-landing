@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/app/components/Footer";
-import { Navbar } from "@/app/components/Navbar"
-import { SmoothScroll } from "./smooth-scroll";
-import { PageLoader } from "@/app/components/ui/page-loader";
 import { Analytics } from "@vercel/analytics/next"
+import { AnalyticsProvider } from "@/app/components/analytics-provider";
+import { SiteChrome } from "@/app/components/site-chrome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -102,30 +100,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <Analytics />
       <body className="min-h-full flex flex-col bg-foreground">
-        <SmoothScroll>
-          <PageLoader />
-          <Navbar />
-          {children}
-                    <div
-            aria-hidden="true"
-            className="fixed top-0 left-0 right-0 z-50 h-8 pointer-events-none"
-            style={{
-              backdropFilter: "blur(2px)",
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 70%, transparent 100%)",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="fixed bottom-0 left-0 right-0 z-50 h-14 pointer-events-none"
-            style={{
-              backdropFilter: "blur(2px)",
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 70%, transparent 100%)",
-            }}
-          />
-          <Footer />
-        </SmoothScroll>
+        <AnalyticsProvider />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

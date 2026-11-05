@@ -163,7 +163,7 @@ export const Navbar: React.FC = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
           style={{ willChange: "transform, opacity" }}
         >
-          <a href="https://dashboard.lattiz.app/" target="_blank" rel="noopener noreferrer" className="flex w-fit items-center justify-start">
+          <a href="/redireccion" className="flex w-fit items-center justify-start">
             <button
               type="button"
               className="flex w-full items-center justify-center rounded-full bg-[#FFF] px-6 py-3.5 text-sm font-medium text-black shadow-sm transition-transform duration-200 hover:scale-[1.02] sm:w-[220px] hover:cursor-pointer"
@@ -249,7 +249,7 @@ export const Navbar: React.FC = () => {
             custom={links.length}
             style={{ willChange: "transform, opacity" }}
           >
-            <a href="https://dashboard.lattiz.app" className="flex flex-row gap-2">
+            <a href="/redireccion" className="flex flex-row gap-2">
               Prueba gratis 3 días <ArrowUpRight />
             </a>
           </motion.li>

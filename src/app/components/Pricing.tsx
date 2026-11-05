@@ -198,9 +198,7 @@ const PricingCard = ({
       </div>
 
       <a
-        href={tier.id === 'enterprise' ? 'mailto:hola@lattiz.app' : 'https://dashboard.lattiz.app/'}
-        target={tier.id === 'enterprise' ? undefined : '_blank'}
-        rel={tier.id === 'enterprise' ? undefined : 'noopener noreferrer'}
+        href={tier.id === 'enterprise' ? 'mailto:hola@lattiz.app' : '/redireccion'}
         className={cn(
           'inline-block h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
           isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95',
