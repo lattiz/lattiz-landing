@@ -6,6 +6,7 @@ import Footer from "@/app/components/Footer";
 import { Navbar } from "@/app/components/Navbar";
 import { PageLoader } from "@/app/components/ui/page-loader";
 import { CookieBanner } from "@/app/components/cookie-banner";
+import { LattiLauncher } from "@/app/components/latti/LattiLauncher";
 import { SmoothScroll } from "@/app/smooth-scroll";
 
 export function SiteChrome({ children }: { children: ReactNode }) {
@@ -40,6 +41,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 				}}
 			/>
 			<Footer />
+			<LattiLauncher />
 			<CookieBanner />
 		</SmoothScroll>
 	);

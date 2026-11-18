@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FAQs } from "@/app/components/FAQs";
 import { Header } from "@/app/components/ui/header";
 import { FaqsData } from "@/app/data/content";
-import { ALL_FAQS, FAQ_CATEGORIES } from "@/app/data/faqs";
+import { getFaqCategories } from "@/sanity/content";
 import { CircleQuestionMark } from "lucide-react";
 
 const title = "Preguntas frecuentes";
@@ -29,17 +29,20 @@ export const metadata: Metadata = {
 	},
 };
 
-const faqJsonLd = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	mainEntity: ALL_FAQS.map((faq) => ({
-		"@type": "Question",
-		name: faq.question,
-		acceptedAnswer: { "@type": "Answer", text: faq.answer },
-	})),
-};
 
-export default function FaqsPage() {
+export default async function FaqsPage() {
+	const categories = await getFaqCategories();
+	const faqJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: categories
+			.flatMap((category) => category.items)
+			.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: { "@type": "Answer", text: faq.answer },
+			})),
+	};
 	return (
 		<main className="mx-auto w-full max-w-7xl px-0 pt-32 pb-24 md:pt-40">
 			<script
@@ -70,7 +73,7 @@ export default function FaqsPage() {
 				</p>
 			</div>
 
-			{FAQ_CATEGORIES.map((category) => (
+			{categories.map((category) => (
 				<FAQs
 					key={category.id}
 					id={category.id}

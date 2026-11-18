@@ -1,6 +1,6 @@
 # Aviso de Privacidad
 
-Versión 2.0. Última actualización: 5 de noviembre de 2026
+Versión 2.1. Última actualización: 13 de noviembre de 2026
 
 Este Aviso de Privacidad se emite conforme a la **Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)** y su normativa aplicable. Describe el tratamiento de datos en `lattiz.app`, en `dashboard.lattiz.app` y en las tecnologías de medición asociadas.
 
@@ -16,6 +16,7 @@ Podemos tratar:
 - **Datos de cuenta y uso del servicio:** credenciales, preferencias, plan contratado y solicitudes de soporte.
 - **Datos de navegación:** dirección IP, tipo de dispositivo, navegador, páginas consultadas, eventos, origen de campaña y datos técnicos similares, cuando estén disponibles.
 - **Datos de cookies:** identificadores en línea, consentimiento, sesiones y eventos de Google Analytics 4 y Google Ads cuando aceptas las cookies de analítica.
+- **Datos del asistente Latti AI:** el texto de las preguntas que escribes en el chat de `lattiz.app` y de las respuestas, la fecha y hora, y un identificador que se calcula a partir de tu dirección IP y no permite recuperarla. El detalle está en la sección 8.
 
 No solicitamos datos personales sensibles para las finalidades descritas en este aviso.
 
@@ -68,6 +69,18 @@ Responderemos dentro de los plazos previstos por la LFPDPPP. La solicitud y su r
 
 Aplicamos medidas administrativas, técnicas y físicas razonables para proteger los datos personales contra daño, pérdida, alteración, destrucción, acceso o tratamiento no autorizado. Conservamos la información durante el tiempo necesario para cumplir las finalidades de este aviso y las obligaciones legales; después la eliminamos, bloqueamos o anonimizamos cuando corresponda.
 
-## 8. Cambios al aviso
+## 8. Asistente Latti AI
+
+`lattiz.app` ofrece un asistente con inteligencia artificial, Latti AI, que responde dudas sobre Lattiz. Usarlo es opcional. Al enviar una pregunta aceptas el tratamiento que se describe aquí.
+
+- **Qué tratamos:** el texto de tus preguntas y de las respuestas, la fecha y hora, datos técnicos de cada respuesta (modelo utilizado, extensión y tiempo) y un identificador que se calcula a partir de tu dirección IP y no permite recuperarla. En el registro de conversaciones no guardamos tu dirección IP en claro ni asociamos la conversación con una cuenta de Lattiz.
+- **Para qué:** responderte, limitar el número de preguntas por persona al día y prevenir abusos, y mejorar las respuestas y el contenido de ayuda.
+- **Quién interviene:** tus preguntas se envían a Vercel (AI Gateway), que las entrega al proveedor del modelo de lenguaje. Hoy usamos modelos Qwen, de Alibaba, y Gemini, de Google. También se consultan en Sanity, donde está el contenido oficial con el que responde el asistente. Estos proveedores pueden tratar la información fuera de México conforme a sus propios términos.
+- **Cuánto tiempo:** conservamos las conversaciones 90 días y después las eliminamos.
+- **Qué no debes escribir:** contraseñas, datos de tarjetas ni datos personales sensibles, tuyos o de otras personas.
+
+Las respuestas se generan de forma automática, son informativas y pueden contener errores. No sustituyen a los Términos y Condiciones ni a la atención en `contacto@lattiz.app`. Puedes ejercer tus derechos ARCO sobre estas conversaciones como indica la sección 6; para localizar una conversación necesitamos la fecha y hora aproximadas y el texto de la pregunta.
+
+## 9. Cambios al aviso
 
 Publicaremos cualquier cambio relevante en `https://lattiz.app/privacy` e indicaremos la fecha de actualización. Si tienes preguntas sobre este aviso o sobre el tratamiento de tus datos, escribe a `contacto@lattiz.app`.
