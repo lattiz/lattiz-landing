@@ -1,6 +1,6 @@
 # Política de Cookies
 
-Versión 2.0. Última actualización: 5 de noviembre de 2026
+Versión 2.1. Última actualización: 13 de noviembre de 2026
 
 Esta política explica cómo Lattiz usa cookies y tecnologías similares en `lattiz.app` y en sus subdominios, incluido `dashboard.lattiz.app`. Forma parte del Aviso de Privacidad (`https://lattiz.app/privacy`).
 
@@ -17,6 +17,8 @@ Puedes retirar tu consentimiento borrando `lattiz_cookie_consent` y las cookies 
 ## 3. Cookies y tecnologías de primera parte
 
 En `lattiz.app`, Lattiz usa la clave `lattiz_cookie_consent` en el almacenamiento local para recordar que aceptaste el uso de analítica. Esta clave no contiene tu nombre, correo ni información de navegación; se conserva durante el tiempo que permanezca en tu navegador, salvo que la borres.
+
+El asistente Latti AI de `lattiz.app` no usa cookies. Guarda la clave `latti-conversation` en el almacenamiento de sesión de tu navegador, con un identificador aleatorio que agrupa los mensajes de una misma conversación. Se borra al cerrar la pestaña y no depende de que aceptes la analítica.
 
 En `dashboard.lattiz.app` pueden existir tecnologías estrictamente necesarias para iniciar sesión, mantener la sesión y guardar preferencias de funcionamiento. Esas tecnologías son necesarias para prestar la plataforma y pueden tener una duración definida por el proveedor de autenticación o por la configuración del panel.
 

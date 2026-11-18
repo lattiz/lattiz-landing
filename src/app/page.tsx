@@ -3,13 +3,14 @@ import { About } from "./components/About";
 import { FeaturesData, HowItWorksData, FaqsData } from "./data/content";
 import { HowItWorks } from "@/app/components/HowItWorks"
 import { FAQs } from "./components/FAQs";
-import { FEATURED_FAQS } from "./data/faqs";
+import { featuredFaqs, getFaqCategories, getPricing } from "@/sanity/content";
 import PricingSection from "@/app/components/Pricing"
 import CTA2 from "./components/CTA";
 import { Features } from "./components/Features";
 import DesktopTemplateCompare from "./components/template-compare/DesktopTemplateCompare";
 
-export default function Home() {
+export default async function Home() {
+  const [categories, pricing] = await Promise.all([getFaqCategories(), getPricing()]);
   return (
     <div>
       <div className="flex flex-col items-center justify-center overflow-x-hidden bg-foreground">
@@ -24,8 +25,8 @@ export default function Home() {
       <HowItWorks data={HowItWorksData.data} />
       <div className="max-w-7xl mx-auto w-full">
         <DesktopTemplateCompare />
-        <PricingSection />
-        <FAQs data={FaqsData.data} items={FEATURED_FAQS} showAllLink id="faq" />
+        <PricingSection tiers={pricing.tiers} disclosure={pricing.disclosure} />
+        <FAQs data={FaqsData.data} items={featuredFaqs(categories)} showAllLink id="faq" />
         <div className="px-4">
           <CTA2 />
         </div>

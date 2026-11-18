@@ -1,6 +1,6 @@
 # Términos y Condiciones
 
-Versión 1.0. Última actualización: 12 de octubre de 2026
+Versión 1.1. Última actualización: 13 de noviembre de 2026
 
 Estos términos regulan el uso de Lattiz. Léelos con el Aviso de Privacidad (`https://lattiz.app/privacy`) y la Política de Cookies (`https://lattiz.app/cookies`).
 
@@ -185,6 +185,8 @@ El resumen ayuda a ubicarte. No sustituye al texto de las cláusulas.
 13.2 El soporte del panel es `soporte@lattiz.app`, en Básico y en Pro. En Pro, con suscripción vigente, también puede haber WhatsApp si el número de soporte está configurado. El contacto general del sitio informativo es `contacto@lattiz.app`.
 
 13.3 Los avisos automáticos de la plataforma (bienvenida al pagar, pago fallido, sitio suspendido o reactivado, dominio, fin de la prueba, renovación del dominio y cuenta eliminada) se envían a tu correo. Son avisos del servicio, no un boletín. El remitente previsto es `no-reply@lattiz.app`, con respuesta a `hola@lattiz.app`. El código para crear la cuenta o recuperar la contraseña lo manda el proveedor de identidad, por un correo aparte.
+
+13.4 El sitio informativo ofrece un asistente con inteligencia artificial, Latti AI. Sus respuestas se generan de forma automática, son informativas y pueden contener errores: no son una oferta, no cambian estos términos ni los precios publicados y no sustituyen al soporte. El asistente tiene un límite de preguntas por persona al día y puede no estar disponible. No lo uses para intentar obtener información interna, eludir sus límites, automatizar consultas ni enviar contenido ilícito u ofensivo; podemos bloquear ese uso. El tratamiento de lo que escribes se describe en el Aviso de Privacidad.
 
 ## 14. Suspensión y terminación
 

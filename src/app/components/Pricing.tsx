@@ -6,73 +6,9 @@ import NumberFlow from '@number-flow/react';
 import { BadgeCheck, Regex } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Header } from './ui/header';
+import type { PricingTier } from '@/app/data/pricing';
 
 const PAYMENT_FREQUENCIES: ('mensual' | 'anual')[] = ['mensual', 'anual'];
-// Must match the Stripe "Mantenimiento anual de dominio" one-time Price.
-const DOMAIN_MAINTENANCE_DISCLOSURE =
-  'Se cobra una couta anual de mantenimiento del sitio web: $599 MXN + IVA a partir del 2º año en plan Básico y Pro.';
-const TIERS = [
-  {
-    id: 'individuals',
-    name: 'Básico',
-    price: {
-      mensual: 449,
-      anual: 4490,
-    },
-    description: 'Para salones, consultorios, tiendas locales y restaurantes pequeños.',
-    features: [
-      '(1) Sitio Web Profesional',
-      'Acceso al panel de edición (CMS)',
-      `Dominio incluido a elección.`,
-      'Certificado de seguridad SSL incluido',
-      'Botón de WhatsApp integrado',
-      '99.9% de uptime',
-      'Soporte por correo (respuesta 48hrs)',
-    ],
-    cta: 'Empezar con plan básico ahora',
-  },
-  {
-    id: 'teams',
-    name: 'Pro',
-    price: {
-      mensual: 699,
-      anual: 6990,
-    },
-    description: "Para restaurantes establecidos, despachos, clínicas con volumen y boutiques.",
-    features: [
-      'Todo lo del plan Básico',
-      `Más opciones de dominios (.com, .mx...)`,
-      'SEO avanzado pre-configurado',
-      'Sitios web premium + secciones premium',
-      'Analíticas y métricas sobre clientes ',
-      'Acceso anticipado a nuevas funciones',
-      'Soporte prioritario por WhatsApp'
-    ],
-    cta: 'Empezar con plan Pro ahora',
-    popular: true,
-  },
-  {
-    id: 'enterprise',
-    name: 'Empresarial',
-    price: {
-      mensual: 'Desde $1,999 MXN',
-      anual: 'Desde $1,999 MXN',
-    },
-    description: 'Para multi-ubicaciones, franquicias y empresas con necesidades específicas.',
-    features: [
-      'Todo lo del plan Pro',
-      'Múltiples sitios web bajo una sola cuenta',
-      'Diseño y sitios web personalizados, únicos',
-      'Integraciones personalizadas (CRM, reservas, pagos)',
-      'Dominios múltiples a elección*',
-      'SLA con garantía de disponibilidad',
-      'Account manager dedicado',
-      'Soporte prioritario con atención directa',
-    ],
-    cta: 'Contáctanos',
-    highlighted: true,
-  },
-];
 
 const HighlightedBackground = () => (
   <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] bg-[size:45px_45px] opacity-100 dark:opacity-30" />
@@ -129,8 +65,8 @@ const PricingCard = ({
   tier,
   paymentFrequency,
 }: {
-  tier: (typeof TIERS)[0];
-  paymentFrequency: keyof typeof tier.price;
+  tier: PricingTier;
+  paymentFrequency: keyof PricingTier['price'];
 }) => {
   const price = tier.price[paymentFrequency];
   const isHighlighted = tier.highlighted;
@@ -198,7 +134,7 @@ const PricingCard = ({
       </div>
 
       <a
-        href={tier.id === 'enterprise' ? 'mailto:hola@lattiz.app' : '/redireccion'}
+        href={typeof tier.price.mensual === 'string' ? 'mailto:hola@lattiz.app' : '/redireccion'}
         className={cn(
           'inline-block h-fit w-full text-center hover:cursor-pointer z-20 rounded-full bg-primary py-3 text-[#FFF] hover:bg-primary/80',
           isHighlighted && 'bg-[#FFF] text-[#000] hover:bg-accent/95',
@@ -210,7 +146,13 @@ const PricingCard = ({
   );
 };
 
-export default function PricingSection() {
+export default function PricingSection({
+  tiers,
+  disclosure,
+}: {
+  tiers: PricingTier[];
+  disclosure: string;
+}) {
   const [selectedPaymentFreq, setSelectedPaymentFreq] = useState<
     'mensual' | 'anual'
   >(PAYMENT_FREQUENCIES[0]);
@@ -235,7 +177,7 @@ export default function PricingSection() {
       </div>
 
       <div className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-        {TIERS.map((tier, i) => (
+        {tiers.map((tier, i) => (
           <PricingCard
             key={i}
             tier={tier}
@@ -245,9 +187,9 @@ export default function PricingSection() {
       </div>
 
       <div className="px-4">
-        {DOMAIN_MAINTENANCE_DISCLOSURE && (
+        {disclosure && (
           <p className="text-center text-sm text-muted-foreground/60">
-            * {DOMAIN_MAINTENANCE_DISCLOSURE}
+            * {disclosure}
           </p>
         )}
       </div>

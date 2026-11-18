@@ -8,13 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ai-sdk/react": "^4.0.175",
     "@base-ui/react": "^1.8.0",
     "@gsap/react": "^2.1.2",
     "@number-flow/react": "^0.6.2",
     "@react-spring/three": "^10.1.2",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.1",
+    "@sanity/client": "^8.16.0",
     "@vercel/analytics": "^2.0.1",
+    "ai": "^7.0.171",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cn": "^0.4.0",
